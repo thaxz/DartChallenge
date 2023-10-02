@@ -14,6 +14,10 @@ class CustomARView: ARView {
     
     private var cancellables: Set<AnyCancellable> = []
     
+    // Components
+    var dart: Dart.Cena? = nil
+    
+    
     required init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
     }
@@ -42,7 +46,7 @@ class CustomARView: ARView {
                 // switching according to each action
                 switch action {
                 case .placeDart:
-                    self?.placeBlock()
+                    self?.placeDart()
                 }
             }
             .store(in: &cancellables)
@@ -50,7 +54,6 @@ class CustomARView: ARView {
     
     // Mock object placed in the scene
     func placeBlock(){
-        print("Colocando bloco na cena...")
         // Creating entity
         let block = MeshResource.generateBox(size: 0.1)
         let material = SimpleMaterial(color: UIColor.blue, isMetallic: false)
@@ -60,6 +63,16 @@ class CustomARView: ARView {
         anchor.addChild(entity)
         // Adding to the scene
         scene.addAnchor(anchor)
+    }
+    
+    func placeDart(){
+        do {
+            let dart = try Dart.loadCena()
+            scene.addAnchor(dart)
+            self.dart = dart
+        } catch {
+            print(error)
+        }
     }
   
 }

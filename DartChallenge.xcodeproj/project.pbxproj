@@ -16,6 +16,7 @@
 		E92C4C042ACB6F6600301545 /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C032ACB6F6600301545 /* ARViewModel.swift */; };
 		E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C062ACB6F8300301545 /* ARAction.swift */; };
 		E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C082ACB6FDC00301545 /* ARManager.swift */; };
+		E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C0B2ACB816D00301545 /* Dart.rcproject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		E92C4C032ACB6F6600301545 /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
 		E92C4C062ACB6F8300301545 /* ARAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAction.swift; sourceTree = "<group>"; };
 		E92C4C082ACB6FDC00301545 /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
+		E92C4C0B2ACB816D00301545 /* Dart.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Dart.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				E92C4BEE2ACB67A900301545 /* DartChallengeApp.swift */,
 				E92C4BF02ACB67A900301545 /* ContentView.swift */,
 				E92C4BF22ACB67AA00301545 /* Assets.xcassets */,
+				E92C4C0A2ACB815C00301545 /* Resources */,
 				E92C4BF42ACB67AA00301545 /* Preview Content */,
 			);
 			path = DartChallenge;
@@ -112,6 +115,14 @@
 				E92C4C062ACB6F8300301545 /* ARAction.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		E92C4C0A2ACB815C00301545 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E92C4C0B2ACB816D00301545 /* Dart.rcproject */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 				E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */,
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
 				E92C4C042ACB6F6600301545 /* ARViewModel.swift in Sources */,
+				E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */,
 				E92C4BF12ACB67A900301545 /* ContentView.swift in Sources */,
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
 				E92C4C012ACB69A100301545 /* CustomARView.swift in Sources */,
