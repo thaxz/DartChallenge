@@ -23,6 +23,14 @@ class CustomARView: ARView {
     // This is the init that is being used
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
+        setupConfiguration()
+    }
+    
+    // View's configuration
+    private func setupConfiguration(){
+        // Tracks the device relative to it's environment
+        let configuration = ARWorldTrackingConfiguration()
+        session.run(configuration)
     }
   
 }
