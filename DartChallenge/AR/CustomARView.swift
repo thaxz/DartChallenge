@@ -12,6 +12,8 @@ import Combine
 
 class CustomARView: ARView {
     
+    private var cancellables: Set<AnyCancellable> = []
+    
     required init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
     }
@@ -23,7 +25,7 @@ class CustomARView: ARView {
     // This is the init that is being used
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
-        setupConfiguration()
+        subscribeToActionStream()
     }
     
     // View's configuration
@@ -31,6 +33,33 @@ class CustomARView: ARView {
         // Tracks the device relative to it's environment
         let configuration = ARWorldTrackingConfiguration()
         session.run(configuration)
+    }
+    
+    func subscribeToActionStream(){
+        ARManager.shared.actionsStream
+        // subscribing with sink
+            .sink { [weak self] action in
+                // switching according to each action
+                switch action {
+                case .placeDart:
+                    self?.placeBlock()
+                }
+            }
+            .store(in: &cancellables)
+    }
+    
+    // Mock object placed in the scene
+    func placeBlock(){
+        print("Colocando bloco na cena...")
+        // Creating entity
+        let block = MeshResource.generateBox(size: 0.1)
+        let material = SimpleMaterial(color: UIColor.blue, isMetallic: false)
+        let entity = ModelEntity(mesh: block, materials: [material])
+        // Connecting with anchor
+        let anchor = AnchorEntity(plane: .horizontal)
+        anchor.addChild(entity)
+        // Adding to the scene
+        scene.addAnchor(anchor)
     }
   
 }
