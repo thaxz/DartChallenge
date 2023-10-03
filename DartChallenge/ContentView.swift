@@ -16,7 +16,7 @@ struct ContentView: View {
                 Spacer()
                 HStack {
                     Button {
-                        ARManager.shared.actionsStream.send(.placeDart)
+                        ARManager.shared.actionsStream.send(.placeBoard)
                     } label: {
                         Image(systemName: "circle")
                             .resizable()
@@ -27,7 +27,7 @@ struct ContentView: View {
                             .cornerRadius(16)
                 }
                     Button {
-                        ARManager.shared.actionsStream.send(.throwDart)
+                        ARManager.shared.actionsStream.send(.placeDart)
                     } label: {
                         Image(systemName: "square.fill")
                             .resizable()

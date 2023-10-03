@@ -47,9 +47,7 @@ class CustomARView: ARView {
                 // switching according to each action
                 switch action {
                 case .placeDart:
-                    self?.placeBall(physicalSphere: self!.ballEntity)
-                case .throwDart:
-                    self?.addPhysicsToBall(physicalSphere: self!.ballEntity)
+                    self?.loadBall(physicalSphere: self!.ballEntity)
                 case .placeBoard:
                     self?.placeBoard()
                 }
@@ -70,30 +68,17 @@ class CustomARView: ARView {
     func loadBall(physicalSphere: ModelEntity) {
         ballWorldAnchor.position = simd_make_float3(0, -1, -2)
         
-        physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateSphere(radius: 0.4), mass: 10.0) ,
+        physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateSphere(radius: 0.4), mass: 10.0),
                                                           material: .generate(),
                                                           mode: .dynamic)
-        physicalSphere.generateCollisionShapes(recursive: true)
+        physicalSphere.generateCollisionShapes(recursive: false)
+        
+        let motionComponent = PhysicsMotionComponent(linearVelocity: [0, 0, 0], angularVelocity: [0, 0, 0])
+        physicalSphere.components.set(motionComponent)
+        
         ballWorldAnchor.addChild(physicalSphere)
         self.scene.anchors.append(ballWorldAnchor)
     }
-
-    
-    func placeBall(physicalSphere: ModelEntity) {
-        ballWorldAnchor.position = simd_make_float3(0, -1, -2)
-        ballWorldAnchor.addChild(physicalSphere)
-        self.scene.anchors.append(ballWorldAnchor)
-        }
-    
-    
-    func addPhysicsToBall(physicalSphere: ModelEntity) {
-        physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateSphere(radius: 0.4), mass: 10.0) ,
-                                                          material: .generate(),
-                                                          mode: .dynamic)
-        physicalSphere.generateCollisionShapes(recursive: true)
-        ballWorldAnchor.addChild(physicalSphere)
-        self.scene.anchors.append(ballWorldAnchor)
-       }
     
     
     func placeDart(){
