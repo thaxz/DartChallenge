@@ -73,7 +73,8 @@ class CustomARView: ARView {
                                                           mode: .dynamic)
         physicalSphere.generateCollisionShapes(recursive: false)
         
-        let motionComponent = PhysicsMotionComponent(linearVelocity: [0, 0, 0], angularVelocity: [0, 0, 0])
+        let throwForce = SIMD3<Float>(0, 0, -20)
+        let motionComponent = PhysicsMotionComponent(linearVelocity: throwForce, angularVelocity: [0, 0, 0])
         physicalSphere.components.set(motionComponent)
         
         ballWorldAnchor.addChild(physicalSphere)
