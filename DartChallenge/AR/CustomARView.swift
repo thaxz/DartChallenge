@@ -14,10 +14,6 @@ class CustomARView: ARView {
     
     private var cancellables: Set<AnyCancellable> = []
     
-    // Components
-    var dart: Dart.Cena? = nil
-    
-    
     required init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
     }
@@ -65,8 +61,12 @@ class CustomARView: ARView {
         scene.addAnchor(anchor)
     }
     
-        func placeDart() {
-            
+    func placeDart(){
+        let anchor = AnchorEntity(plane: .horizontal)
+        if let usdzModel = try? Entity.load(named: "firstDart") {
+            anchor.addChild(usdzModel)
+        }
+        scene.anchors.append(anchor)
     }
   
 }
