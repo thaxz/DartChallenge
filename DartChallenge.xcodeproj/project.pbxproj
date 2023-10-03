@@ -17,6 +17,9 @@
 		E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C062ACB6F8300301545 /* ARAction.swift */; };
 		E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C082ACB6FDC00301545 /* ARManager.swift */; };
 		E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C0B2ACB816D00301545 /* Dart.rcproject */; };
+		E97AAF602ACC30D100FBE4BB /* dartBoard.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */; };
+		E97AAF612ACC30D100FBE4BB /* firstDart.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */; };
+		E97AAF642ACC31B900FBE4BB /* DartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97AAF632ACC31B900FBE4BB /* DartEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		E92C4C062ACB6F8300301545 /* ARAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAction.swift; sourceTree = "<group>"; };
 		E92C4C082ACB6FDC00301545 /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		E92C4C0B2ACB816D00301545 /* Dart.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Dart.rcproject; sourceTree = "<group>"; };
+		E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = dartBoard.usdz; sourceTree = "<group>"; };
+		E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = firstDart.usdz; sourceTree = "<group>"; };
+		E97AAF632ACC31B900FBE4BB /* DartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		E92C4BFC2ACB687300301545 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				E97AAF622ACC31AD00FBE4BB /* Entities */,
 				E92C4BFE2ACB698200301545 /* ARViewContainer.swift */,
 				E92C4C002ACB69A100301545 /* CustomARView.swift */,
 			);
@@ -120,9 +127,19 @@
 		E92C4C0A2ACB815C00301545 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */,
+				E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */,
 				E92C4C0B2ACB816D00301545 /* Dart.rcproject */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		E97AAF622ACC31AD00FBE4BB /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E97AAF632ACC31B900FBE4BB /* DartEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92C4BF62ACB67AA00301545 /* Preview Assets.xcassets in Resources */,
+				E97AAF612ACC30D100FBE4BB /* firstDart.usdz in Resources */,
 				E92C4BF32ACB67AA00301545 /* Assets.xcassets in Resources */,
+				E97AAF602ACC30D100FBE4BB /* dartBoard.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +218,7 @@
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
 				E92C4C042ACB6F6600301545 /* ARViewModel.swift in Sources */,
 				E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */,
+				E97AAF642ACC31B900FBE4BB /* DartEntity.swift in Sources */,
 				E92C4BF12ACB67A900301545 /* ContentView.swift in Sources */,
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
 				E92C4C012ACB69A100301545 /* CustomARView.swift in Sources */,

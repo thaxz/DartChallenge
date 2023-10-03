@@ -65,14 +65,8 @@ class CustomARView: ARView {
         scene.addAnchor(anchor)
     }
     
-    func placeDart(){
-        do {
-            let dart = try Dart.loadCena()
-            scene.addAnchor(dart)
-            self.dart = dart
-        } catch {
-            print(error)
-        }
+        func placeDart() {
+            
     }
   
 }
