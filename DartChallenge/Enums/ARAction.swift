@@ -11,5 +11,6 @@ import SwiftUI
 enum ARAction {
     
     case placeDart
+    case placeBoard
     
 }

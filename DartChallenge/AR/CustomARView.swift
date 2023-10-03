@@ -43,6 +43,8 @@ class CustomARView: ARView {
                 switch action {
                 case .placeDart:
                     self?.placeDart()
+                case .placeBoard:
+                    self?.placeBoard()
                 }
             }
             .store(in: &cancellables)
@@ -63,10 +65,17 @@ class CustomARView: ARView {
     
     func placeDart(){
         let anchor = AnchorEntity(plane: .horizontal)
-        if let usdzModel = try? Entity.load(named: "firstDart") {
-            anchor.addChild(usdzModel)
-        }
-        scene.anchors.append(anchor)
+        guard let dartEntity = try? Entity.load(named: "firstDart") else {return}
+        anchor.addChild(dartEntity)
+        scene.addAnchor(anchor)
+        
+    }
+    
+    func placeBoard(){
+        let anchor = AnchorEntity(plane: .any)
+        guard let boardEntity = try? Entity.load(named: "dartBoard") else {return}
+        anchor.addChild(boardEntity)
+        scene.addAnchor(anchor)
     }
   
 }

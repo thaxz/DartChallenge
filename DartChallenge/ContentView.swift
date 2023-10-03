@@ -14,17 +14,30 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                Button {
-                    ARManager.shared.actionsStream.send(.placeDart)
-                } label: {
-                    Image(systemName: "circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40, height: 40)
-                        .padding()
-                        .background(.regularMaterial)
-                        .cornerRadius(16)
-            }
+                HStack {
+                    Button {
+                        ARManager.shared.actionsStream.send(.placeDart)
+                    } label: {
+                        Image(systemName: "circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                            .padding()
+                            .background(.regularMaterial)
+                            .cornerRadius(16)
+                }
+                    Button {
+                        ARManager.shared.actionsStream.send(.placeBoard)
+                    } label: {
+                        Image(systemName: "square.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40)
+                            .padding()
+                            .background(.regularMaterial)
+                            .cornerRadius(16)
+                }
+                }
             }
         }
     }
