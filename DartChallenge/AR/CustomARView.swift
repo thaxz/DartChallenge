@@ -22,6 +22,9 @@ class CustomARView: ARView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: COMPONENTS
+    private var dartBoard: Entity?
+    
     // This is the init that is being used
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
@@ -71,24 +74,36 @@ class CustomARView: ARView {
         
     }
     
-    func placeBoard(){
+    func placeBoard() {
         // Remove o "board" anterior se existir algum
-        for anchor in scene.anchors {
-                if let anchorEntity = anchor as? AnchorEntity, anchorEntity.name == "dartBoard" {
-                    scene.removeAnchor(anchorEntity)
-                }
-            }
-
-            // Gera coordenadas aleatórias para a posição X e Z do "board"
-            let randomX = Float.random(in: -3...3) // Coordenada X entre -5 e 5 metros
-            let randomZ = Float.random(in: -3...0) // Coordenada Z entre -5 e 5 metros
-
-            // Cria um novo "board" na posição aleatória, mantendo a altura constante
-            let anchor = AnchorEntity(world: [randomX, 0, randomZ])
-            guard let boardEntity = try? Entity.load(named: "dartBoard") else { return }
-            anchor.addChild(boardEntity)
-            anchor.name = "dartBoard"
-            scene.addAnchor(anchor)
+        removePreviousBoard()
+        
+        // Obtém uma posição aleatória para o novo "board"
+        let randomPosition = getRandomPosition()
+        
+        // Cria um novo "board" na posição aleatória, mantendo a altura constante
+        let anchor = AnchorEntity(world: [randomPosition.x, 0, randomPosition.z])
+        guard let boardEntity = try? Entity.load(named: "dartBoard") else { return }
+        anchor.addChild(boardEntity)
+        anchor.name = "dartBoard"
+        scene.addAnchor(anchor)
+        
+        // Armazena a referência ao "board" para acesso posterior
+        dartBoard = boardEntity
     }
-  
+    
+    private func removePreviousBoard() {
+        for anchor in scene.anchors {
+            if let anchorEntity = anchor as? AnchorEntity, anchorEntity.name == "dartBoard" {
+                scene.removeAnchor(anchorEntity)
+            }
+        }
+    }
+    
+    private func getRandomPosition() -> (x: Float, z: Float) {
+        let randomX = Float.random(in: -3...3) // Coordenada X entre -5 e 5 metros
+        let randomZ = Float.random(in: -3...0) // Coordenada Z entre -5 e 5 metros
+        return (randomX, randomZ)
+    }
+    
 }
