@@ -72,7 +72,8 @@ class CustomARView: ARView {
     }
     
     func placeBoard(){
-        let anchor = AnchorEntity(plane: .any)
+        // Place 1m left, 1m above, and 2m away from the origin of the parent entity
+        let anchor = AnchorEntity(world: [-1,0,-2])
         guard let boardEntity = try? Entity.load(named: "dartBoard") else {return}
         anchor.addChild(boardEntity)
         scene.addAnchor(anchor)
