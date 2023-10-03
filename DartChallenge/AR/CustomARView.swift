@@ -72,11 +72,23 @@ class CustomARView: ARView {
     }
     
     func placeBoard(){
-        // Place 1m left, 1m above, and 2m away from the origin of the parent entity
-        let anchor = AnchorEntity(world: [-1,0,-2])
-        guard let boardEntity = try? Entity.load(named: "dartBoard") else {return}
-        anchor.addChild(boardEntity)
-        scene.addAnchor(anchor)
+        // Remove o "board" anterior se existir algum
+        for anchor in scene.anchors {
+                if let anchorEntity = anchor as? AnchorEntity, anchorEntity.name == "dartBoard" {
+                    scene.removeAnchor(anchorEntity)
+                }
+            }
+
+            // Gera coordenadas aleatórias para a posição X e Z do "board"
+            let randomX = Float.random(in: -3...3) // Coordenada X entre -5 e 5 metros
+            let randomZ = Float.random(in: -3...0) // Coordenada Z entre -5 e 5 metros
+
+            // Cria um novo "board" na posição aleatória, mantendo a altura constante
+            let anchor = AnchorEntity(world: [randomX, 0, randomZ])
+            guard let boardEntity = try? Entity.load(named: "dartBoard") else { return }
+            anchor.addChild(boardEntity)
+            anchor.name = "dartBoard"
+            scene.addAnchor(anchor)
     }
   
 }
