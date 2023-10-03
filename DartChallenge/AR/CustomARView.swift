@@ -28,6 +28,7 @@ class CustomARView: ARView {
     // This is the init that is being used
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
+        placeDart()
         subscribeToActionStream()
     }
     
@@ -47,7 +48,7 @@ class CustomARView: ARView {
                 case .placeDart:
                     self?.placeDart()
                 case .placeBoard:
-                    self?.placeBoard()
+                    self?.throwDart()
                 }
             }
             .store(in: &cancellables)
@@ -67,10 +68,14 @@ class CustomARView: ARView {
     }
     
     func placeDart(){
-        let anchor = AnchorEntity(plane: .horizontal)
+        let anchor = AnchorEntity(world: [0, 0, 0])
         guard let dartEntity = try? Entity.load(named: "firstDart") else {return}
         anchor.addChild(dartEntity)
         scene.addAnchor(anchor)
+        
+    }
+    
+    func throwDart(){
         
     }
     
