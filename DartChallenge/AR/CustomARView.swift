@@ -24,11 +24,13 @@ class CustomARView: ARView {
     
     //MARK: COMPONENTS
     private var dartBoard: Entity?
+    var ballEntity = ModelEntity(mesh: .generateSphere(radius: 0.2),
+                                 materials: [SimpleMaterial(color: .white, isMetallic: false)])
+    var ballWorldAnchor = AnchorEntity()
     
     // This is the init that is being used
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
-        placeDart()
         subscribeToActionStream()
     }
     
@@ -41,21 +43,21 @@ class CustomARView: ARView {
     
     func subscribeToActionStream(){
         ARManager.shared.actionsStream
-        // subscribing with sink
             .sink { [weak self] action in
                 // switching according to each action
                 switch action {
                 case .placeDart:
-                    self?.placeBoard()
+                    self?.placeBall(physicalSphere: self!.ballEntity)
+                case .throwDart:
+                    self?.addPhysicsToBall(physicalSphere: self!.ballEntity)
                 case .placeBoard:
-                    self?.placeBlock()
+                    self?.placeBoard()
                 }
             }
             .store(in: &cancellables)
     }
     
     // Mock object placed in the scene
-    // If Im not able to figure it out how to throw, ill use this
     func placeBlock(){
         let box = CustomBox(color: .yellow, position: [-0.6, -1, -2])
         self.installGestures(.all, for: box)
@@ -65,9 +67,39 @@ class CustomARView: ARView {
         self.installGestures(.init(arrayLiteral: [.rotation, .scale]), for: box)
     }
     
+    func loadBall(physicalSphere: ModelEntity) {
+        ballWorldAnchor.position = simd_make_float3(0, -1, -2)
+        
+        physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateSphere(radius: 0.4), mass: 10.0) ,
+                                                          material: .generate(),
+                                                          mode: .dynamic)
+        physicalSphere.generateCollisionShapes(recursive: true)
+        ballWorldAnchor.addChild(physicalSphere)
+        self.scene.anchors.append(ballWorldAnchor)
+    }
+
+    
+    func placeBall(physicalSphere: ModelEntity) {
+        ballWorldAnchor.position = simd_make_float3(0, -1, -2)
+        ballWorldAnchor.addChild(physicalSphere)
+        self.scene.anchors.append(ballWorldAnchor)
+        }
+    
+    
+    func addPhysicsToBall(physicalSphere: ModelEntity) {
+        physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateSphere(radius: 0.4), mass: 10.0) ,
+                                                          material: .generate(),
+                                                          mode: .dynamic)
+        physicalSphere.generateCollisionShapes(recursive: true)
+        ballWorldAnchor.addChild(physicalSphere)
+        self.scene.anchors.append(ballWorldAnchor)
+       }
+    
+    
     func placeDart(){
-        let anchor = AnchorEntity(world: [0, 0, 0])
+        let anchor = AnchorEntity(plane: .horizontal)
         guard let dartEntity = try? Entity.load(named: "firstDart") else {return}
+        dartEntity.addPhysicsToChildren()
         anchor.addChild(dartEntity)
         scene.addAnchor(anchor)
         
@@ -76,7 +108,7 @@ class CustomARView: ARView {
     func throwDart() {
         // dont know
     }
-
+    
     
     func placeBoard() {
         // Remove o "board" anterior se existir algum

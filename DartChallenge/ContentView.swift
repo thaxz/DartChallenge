@@ -27,7 +27,7 @@ struct ContentView: View {
                             .cornerRadius(16)
                 }
                     Button {
-                        ARManager.shared.actionsStream.send(.placeBoard)
+                        ARManager.shared.actionsStream.send(.throwDart)
                     } label: {
                         Image(systemName: "square.fill")
                             .resizable()
