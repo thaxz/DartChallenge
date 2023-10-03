@@ -11,7 +11,9 @@ import SwiftUI
 struct ARViewContainer: UIViewRepresentable {
     
     func makeUIView(context: Context) -> CustomARView {
-        return CustomARView()
+        let arView = CustomARView()
+        
+        return arView
     }
     
     func updateUIView(_ uiView: CustomARView, context: Context) {
