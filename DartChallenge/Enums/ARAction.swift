@@ -12,5 +12,5 @@ enum ARAction {
     
     case placeDart(at: SIMD3<Float>)
     case placeBoard
-    
+    case removeDart
 }
