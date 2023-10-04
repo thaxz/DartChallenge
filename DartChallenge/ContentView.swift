@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import ARKit
 
 struct ContentView: View {
+    @StateObject private var coordinator = Coordinator()
     var body: some View {
         ZStack {
-            ARViewContainer()
+            ARViewContainer(coordinator: coordinator)
                 .ignoresSafeArea()
             VStack {
                 Spacer()
@@ -25,9 +27,9 @@ struct ContentView: View {
                             .padding()
                             .background(.regularMaterial)
                             .cornerRadius(16)
-                }
+                    }
                     Button {
-                       // ARManager.shared.actionsStream.send(.placeDart)
+                        coordinator.placeDart()
                     } label: {
                         Image(systemName: "square.fill")
                             .resizable()
@@ -36,7 +38,7 @@ struct ContentView: View {
                             .padding()
                             .background(.regularMaterial)
                             .cornerRadius(16)
-                }
+                    }
                 }
             }
         }
