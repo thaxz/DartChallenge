@@ -46,8 +46,8 @@ class CustomARView: ARView {
             .sink { [weak self] action in
                 // switching according to each action
                 switch action {
-                case .placeDart:
-                    self?.loadBall(physicalSphere: self!.ballEntity)
+                case .placeDart(let position):
+                    self?.loadBall(physicalSphere: self!.ballEntity, at: position)
                 case .placeBoard:
                     self?.placeBoard()
                 }
@@ -65,8 +65,8 @@ class CustomARView: ARView {
         self.installGestures(.init(arrayLiteral: [.rotation, .scale]), for: box)
     }
     
-    func loadBall(physicalSphere: ModelEntity) {
-        ballWorldAnchor.position = simd_make_float3(0, -1, -2)
+    func loadBall(physicalSphere: ModelEntity, at position: SIMD3<Float>) {
+        ballWorldAnchor.position = position
         
         physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateSphere(radius: 0.4), mass: 10.0),
                                                           material: .generate(),
