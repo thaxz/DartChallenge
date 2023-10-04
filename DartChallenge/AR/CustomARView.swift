@@ -50,6 +50,8 @@ class CustomARView: ARView {
                     self?.loadBall(physicalSphere: self!.ballEntity, at: position)
                 case .placeBoard:
                     self?.placeBoard()
+                case .removeDart:
+                    self?.updateDart()
                 }
             }
             .store(in: &cancellables)
@@ -81,6 +83,11 @@ class CustomARView: ARView {
         self.scene.anchors.append(ballWorldAnchor)
     }
     
+    func updateDart(){
+        if (self.ballEntity.transform.translation.y) < -2.0 {
+            scene.removeAnchor(ballWorldAnchor)
+        }
+    }
     
     func placeDart(){
         let anchor = AnchorEntity(plane: .horizontal)

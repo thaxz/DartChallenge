@@ -10,6 +10,7 @@ import ARKit
 
 struct ContentView: View {
     @StateObject private var coordinator = Coordinator()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack {
             ARViewContainer(coordinator: coordinator)
@@ -40,6 +41,9 @@ struct ContentView: View {
                             .cornerRadius(16)
                     }
                 }
+            }
+            .onReceive(timer) { _ in
+                ARManager.shared.actionsStream.send(.removeDart)
             }
         }
     }
