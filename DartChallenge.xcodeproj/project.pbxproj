@@ -20,6 +20,9 @@
 		E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C062ACB6F8300301545 /* ARAction.swift */; };
 		E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C082ACB6FDC00301545 /* ARManager.swift */; };
 		E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C0B2ACB816D00301545 /* Dart.rcproject */; };
+		E96D54BE2ACD9C9100FD8D76 /* CustomARView+Dart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */; };
+		E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */; };
+		E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54C12ACDA05A00FD8D76 /* Float.swift */; };
 		E97AAF602ACC30D100FBE4BB /* dartBoard.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */; };
 		E97AAF612ACC30D100FBE4BB /* firstDart.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */; };
 /* End PBXBuildFile section */
@@ -39,6 +42,9 @@
 		E92C4C062ACB6F8300301545 /* ARAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAction.swift; sourceTree = "<group>"; };
 		E92C4C082ACB6FDC00301545 /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		E92C4C0B2ACB816D00301545 /* Dart.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Dart.rcproject; sourceTree = "<group>"; };
+		E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Dart.swift"; sourceTree = "<group>"; };
+		E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+DartBoard.swift"; sourceTree = "<group>"; };
+		E96D54C12ACDA05A00FD8D76 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = dartBoard.usdz; sourceTree = "<group>"; };
 		E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = firstDart.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				E915E3FB2ACCB8C20046F5D7 /* Entity.swift */,
+				E96D54C12ACDA05A00FD8D76 /* Float.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -110,6 +117,8 @@
 				E92C4BFE2ACB698200301545 /* ARViewContainer.swift */,
 				E92C4C002ACB69A100301545 /* CustomARView.swift */,
 				E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */,
+				E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */,
+				E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */,
 			);
 			path = AR;
 			sourceTree = "<group>";
@@ -221,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */,
+				E96D54BE2ACD9C9100FD8D76 /* CustomARView+Dart.swift in Sources */,
 				E915E3FE2ACCB9D90046F5D7 /* CustomARView+Load.swift in Sources */,
 				E915E3DD2ACC82040046F5D7 /* CustomBox.swift in Sources */,
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
@@ -228,9 +238,11 @@
 				E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */,
 				E92C4BF12ACB67A900301545 /* ContentView.swift in Sources */,
 				E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */,
+				E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */,
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
 				E92C4C012ACB69A100301545 /* CustomARView.swift in Sources */,
 				E92C4BFF2ACB698200301545 /* ARViewContainer.swift in Sources */,
+				E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

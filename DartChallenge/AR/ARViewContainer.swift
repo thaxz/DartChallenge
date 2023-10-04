@@ -34,8 +34,4 @@ class Coordinator: ObservableObject {
     }
 }
 
-public extension float4x4 {
-    static var identity: float4x4 {
-        return float4x4(diagonal: float4(1, 1, 1, 1))
-    }
-}
+
