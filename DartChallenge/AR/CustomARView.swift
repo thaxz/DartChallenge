@@ -32,9 +32,9 @@ class CustomARView: ARView {
     
     //MARK: COMPONENTS
     var dartBoard: Entity?
-    var ballEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 9),
+    var dartEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 9),
                                  materials: [SimpleMaterial(color: .red, isMetallic: false)])
-    var ballWorldAnchor = AnchorEntity()
+    var dartWorldAnchor = AnchorEntity()
     
     
     
@@ -50,7 +50,7 @@ class CustomARView: ARView {
             .sink { [weak self] action in
                 switch action {
                 case .placeDart(let position):
-                    self?.loadBall(physicalSphere: self!.ballEntity, at: position)
+                    self?.loadDart(physicalSphere: self!.dartEntity, at: position)
                 case .placeBoard:
                     self?.placeBoard()
                 case .removeDart:

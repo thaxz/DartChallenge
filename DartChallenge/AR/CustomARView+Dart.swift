@@ -12,8 +12,8 @@ import RealityKit
 
 extension CustomARView {
     
-    func loadBall(physicalSphere: ModelEntity, at position: SIMD3<Float>) {
-            ballWorldAnchor.position = position
+    func loadDart(physicalSphere: ModelEntity, at position: SIMD3<Float>) {
+            dartWorldAnchor.position = position
             //physics
         physicalSphere.physicsBody = PhysicsBodyComponent(massProperties: PhysicsMassProperties(shape: .generateBox(width: 1, height: 1, depth: 2), mass: 10.0), material: .generate(),mode: .dynamic)
             physicalSphere.generateCollisionShapes(recursive: false)
@@ -40,17 +40,17 @@ extension CustomARView {
             physicalSphere.components.set(motionComponent)
             
             //add
-            ballWorldAnchor.addChild(physicalSphere)
-            self.scene.anchors.append(ballWorldAnchor)
+            dartWorldAnchor.addChild(physicalSphere)
+            self.scene.anchors.append(dartWorldAnchor)
         }
     
     
     func updateDart(){
-        if (self.ballEntity.transform.translation.y) < -2.0 {
-            scene.removeAnchor(ballWorldAnchor)
-            ballEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 2),
+        if (self.dartEntity.transform.translation.y) < -2.0 {
+            scene.removeAnchor(dartWorldAnchor)
+            dartEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 2),
                                      materials: [SimpleMaterial(color: .red, isMetallic: false)])
-            ballWorldAnchor = AnchorEntity()
+            dartWorldAnchor = AnchorEntity()
         }
     }
     

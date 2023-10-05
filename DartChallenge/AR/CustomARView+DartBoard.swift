@@ -42,7 +42,7 @@ extension CustomARView {
     }
     
     private func getRandomPosition() -> (x: Float, z: Float) {
-        let randomX = Float.random(in: -1.5...1.5) // Coordenada X entre -5 e 5 metros
+        let randomX = Float.random(in: -1...1) // Coordenada X entre -5 e 5 metros
         let randomZ = Float.random(in: -2...0)
         return (randomX, randomZ)
     }
