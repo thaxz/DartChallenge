@@ -31,10 +31,9 @@ class CustomARView: ARView {
     private var cancellables: Set<AnyCancellable> = []
     
     //MARK: COMPONENTS
-    
     var dartBoard: Entity?
-    var ballEntity = ModelEntity(mesh: .generateSphere(radius: 0.2),
-                                 materials: [SimpleMaterial(color: .white, isMetallic: false)])
+    var ballEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 9),
+                                 materials: [SimpleMaterial(color: .red, isMetallic: false)])
     var ballWorldAnchor = AnchorEntity()
     
     
