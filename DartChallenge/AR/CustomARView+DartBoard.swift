@@ -23,8 +23,13 @@ extension CustomARView {
         // Cria um novo "board" na posição aleatória, mantendo a altura constante
         let anchor = AnchorEntity(world: [randomPosition.x, 0, randomPosition.z])
         guard let boardEntity = try? Entity.load(named: "dartBoard") else { return }
-        let collisionShape = ShapeResource.generateCapsule(height: 0.5, radius: 0.25)
-        boardEntity.components.set(CollisionComponent(shapes: [collisionShape]))
+        
+        // MARK: - ERA ASSIM
+//        let collisionShape = ShapeResource.generateCapsule(height: 0.5, radius: 0.25)
+//        boardEntity.components.set(CollisionComponent(shapes: [collisionShape]))
+        // MARK: -
+        
+        boardEntity.addPhysicsToChildren()
         anchor.addChild(boardEntity)
         anchor.name = "dartBoard"
         scene.addAnchor(anchor)

@@ -36,8 +36,6 @@ class CustomARView: ARView {
                                  materials: [SimpleMaterial(color: .red, isMetallic: false)])
     var dartWorldAnchor = AnchorEntity()
     
-    
-    
     // View's configuration
     private func setupConfiguration(){
         // Tracks the device relative to it's environment
@@ -55,6 +53,8 @@ class CustomARView: ARView {
                     self?.placeBoard()
                 case .removeDart:
                     self?.updateDart()
+                case .checkCollision:
+                    self?.checkCollisions()
                 }
             }
             .store(in: &cancellables)

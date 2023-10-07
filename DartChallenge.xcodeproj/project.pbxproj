@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90CB1342ACEF73E00A01FBA /* CustomARView+Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90CB1332ACEF73E00A01FBA /* CustomARView+Collisions.swift */; };
 		E915E3DD2ACC82040046F5D7 /* CustomBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915E3DC2ACC82040046F5D7 /* CustomBox.swift */; };
 		E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915E3FB2ACCB8C20046F5D7 /* Entity.swift */; };
 		E915E3FE2ACCB9D90046F5D7 /* CustomARView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E90CB1332ACEF73E00A01FBA /* CustomARView+Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Collisions.swift"; sourceTree = "<group>"; };
 		E915E3DC2ACC82040046F5D7 /* CustomBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBox.swift; sourceTree = "<group>"; };
 		E915E3FB2ACCB8C20046F5D7 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Load.swift"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */,
 				E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */,
 				E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */,
+				E90CB1332ACEF73E00A01FBA /* CustomARView+Collisions.swift */,
 			);
 			path = AR;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
 				E92C4C012ACB69A100301545 /* CustomARView.swift in Sources */,
 				E92C4BFF2ACB698200301545 /* ARViewContainer.swift in Sources */,
+				E90CB1342ACEF73E00A01FBA /* CustomARView+Collisions.swift in Sources */,
 				E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
