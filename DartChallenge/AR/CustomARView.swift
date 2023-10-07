@@ -31,13 +31,10 @@ class CustomARView: ARView {
     private var cancellables: Set<AnyCancellable> = []
     
     //MARK: COMPONENTS
-    
     var dartBoard: Entity?
-    var ballEntity = ModelEntity(mesh: .generateSphere(radius: 0.2),
-                                 materials: [SimpleMaterial(color: .white, isMetallic: false)])
-    var ballWorldAnchor = AnchorEntity()
-    
-    
+    var dartEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 9),
+                                 materials: [SimpleMaterial(color: .red, isMetallic: false)])
+    var dartWorldAnchor = AnchorEntity()
     
     // View's configuration
     private func setupConfiguration(){
@@ -51,11 +48,13 @@ class CustomARView: ARView {
             .sink { [weak self] action in
                 switch action {
                 case .placeDart(let position):
-                    self?.loadBall(physicalSphere: self!.ballEntity, at: position)
+                    self?.loadDart(physicalSphere: self!.dartEntity, at: position)
                 case .placeBoard:
                     self?.placeBoard()
                 case .removeDart:
                     self?.updateDart()
+                case .checkCollision:
+                    self?.checkCollisions()
                 }
             }
             .store(in: &cancellables)

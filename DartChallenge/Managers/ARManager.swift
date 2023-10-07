@@ -18,11 +18,6 @@ class ARManager {
     // The first value is what we want to pass throught and the second is any error than can be thrown
     // Ours is never because we're telling that this action can never fails
     var actionsStream = PassthroughSubject<ARAction, Never>()
-    
-    
-    
-    
-    
 }
 
 enum ResourceLoaderError: Error {

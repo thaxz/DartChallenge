@@ -44,6 +44,7 @@ struct ContentView: View {
             }
             .onReceive(timer) { _ in
                 ARManager.shared.actionsStream.send(.removeDart)
+//                ARManager.shared.actionsStream.send(.checkCollision)
             }
         }
     }
