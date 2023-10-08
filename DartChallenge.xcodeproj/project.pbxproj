@@ -104,7 +104,6 @@
 		E92C4BED2ACB67A900301545 /* DartChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				E98FE04C2AD32322006410A1 /* Info.plist */,
 				E92C4BEE2ACB67A900301545 /* DartChallengeApp.swift */,
 				E92C4BFC2ACB687300301545 /* AR */,
 				E98FE0382AD31B48006410A1 /* Core */,
@@ -112,6 +111,7 @@
 				E915E3FA2ACCB8B10046F5D7 /* Extensions */,
 				E92C4BFD2ACB694200301545 /* Managers */,
 				E92C4BF22ACB67AA00301545 /* Assets.xcassets */,
+				E98FE04C2AD32322006410A1 /* Info.plist */,
 				E92C4C0A2ACB815C00301545 /* Resources */,
 				E92C4BF42ACB67AA00301545 /* Preview Content */,
 				E915E3DC2ACC82040046F5D7 /* CustomBox.swift */,
