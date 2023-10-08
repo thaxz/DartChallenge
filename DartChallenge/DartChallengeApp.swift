@@ -11,7 +11,7 @@ import SwiftUI
 struct DartChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameView()
         }
     }
 }
