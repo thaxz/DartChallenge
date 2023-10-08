@@ -26,6 +26,9 @@
 		E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54C12ACDA05A00FD8D76 /* Float.swift */; };
 		E97AAF602ACC30D100FBE4BB /* dartBoard.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */; };
 		E97AAF612ACC30D100FBE4BB /* firstDart.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */; };
+		E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0402AD31E15006410A1 /* MenuView.swift */; };
+		E98FE0432AD31EBA006410A1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */; };
+		E98FE0452AD31EC9006410A1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0442AD31EC9006410A1 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		E96D54C12ACDA05A00FD8D76 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = dartBoard.usdz; sourceTree = "<group>"; };
 		E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = firstDart.usdz; sourceTree = "<group>"; };
+		E98FE0402AD31E15006410A1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E98FE0442AD31EC9006410A1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			children = (
 				E915E3FB2ACCB8C20046F5D7 /* Entity.swift */,
 				E96D54C12ACDA05A00FD8D76 /* Float.swift */,
+				E98FE0442AD31EC9006410A1 /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 		E98FE03C2AD31B9E006410A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 		E98FE03D2AD31BC1006410A1 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E98FE0402AD31E15006410A1 /* MenuView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -303,14 +312,17 @@
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
 				E92C4C042ACB6F6600301545 /* GameViewModel.swift in Sources */,
 				E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */,
+				E98FE0432AD31EBA006410A1 /* PrimaryButton.swift in Sources */,
 				E92C4BF12ACB67A900301545 /* GameView.swift in Sources */,
 				E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */,
+				E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */,
 				E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */,
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
 				E92C4C012ACB69A100301545 /* CustomARView.swift in Sources */,
 				E92C4BFF2ACB698200301545 /* ARViewContainer.swift in Sources */,
 				E90CB1342ACEF73E00A01FBA /* CustomARView+Collisions.swift in Sources */,
 				E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */,
+				E98FE0452AD31EC9006410A1 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
