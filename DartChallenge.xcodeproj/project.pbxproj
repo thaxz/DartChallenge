@@ -37,6 +37,7 @@
 		E98FE0522AD33621006410A1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0512AD33621006410A1 /* DetailView.swift */; };
 		E98FE0542AD33644006410A1 /* PreviousMatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0532AD33644006410A1 /* PreviousMatchesView.swift */; };
 		E98FE0582AD33921006410A1 /* DartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0572AD33921006410A1 /* DartRow.swift */; };
+		E98FE05A2AD33D82006410A1 /* MacthesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0592AD33D82006410A1 /* MacthesRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		E98FE0512AD33621006410A1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E98FE0532AD33644006410A1 /* PreviousMatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousMatchesView.swift; sourceTree = "<group>"; };
 		E98FE0572AD33921006410A1 /* DartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartRow.swift; sourceTree = "<group>"; };
+		E98FE0592AD33D82006410A1 /* MacthesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacthesRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				E98FE0572AD33921006410A1 /* DartRow.swift */,
+				E98FE0592AD33D82006410A1 /* MacthesRow.swift */,
 			);
 			path = Rows;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				E915E3FE2ACCB9D90046F5D7 /* CustomARView+Load.swift in Sources */,
 				E98FE0582AD33921006410A1 /* DartRow.swift in Sources */,
 				E915E3DD2ACC82040046F5D7 /* CustomBox.swift in Sources */,
+				E98FE05A2AD33D82006410A1 /* MacthesRow.swift in Sources */,
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
 				E98FE0522AD33621006410A1 /* DetailView.swift in Sources */,
 				E92C4C042ACB6F6600301545 /* GameViewModel.swift in Sources */,
