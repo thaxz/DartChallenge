@@ -17,6 +17,7 @@ struct PrimaryButton: View {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(Color.theme.primary)
                 Text(title.uppercased())
+                    .font(.custom("Futura-Medium", size: 22))
                     .foregroundColor(.white)
             }
         }

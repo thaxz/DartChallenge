@@ -20,6 +20,7 @@ struct SecondaryButton: View {
                         RoundedRectangle(cornerRadius: 20).foregroundColor(.theme.secondary)
                     )
                 Text(title.uppercased())
+                    .font(.custom("Futura-Medium", size: 22))
                     .foregroundColor(.white)
             }
         }
