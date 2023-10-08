@@ -29,6 +29,7 @@
 		E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0402AD31E15006410A1 /* MenuView.swift */; };
 		E98FE0432AD31EBA006410A1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */; };
 		E98FE0452AD31EC9006410A1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0442AD31EC9006410A1 /* Color.swift */; };
+		E98FE0472AD32142006410A1 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0462AD32142006410A1 /* SecondaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		E98FE0402AD31E15006410A1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E98FE0442AD31EC9006410A1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E98FE0462AD32142006410A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */,
+				E98FE0462AD32142006410A1 /* SecondaryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				E98FE0432AD31EBA006410A1 /* PrimaryButton.swift in Sources */,
 				E92C4BF12ACB67A900301545 /* GameView.swift in Sources */,
 				E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */,
+				E98FE0472AD32142006410A1 /* SecondaryButton.swift in Sources */,
 				E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */,
 				E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */,
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
