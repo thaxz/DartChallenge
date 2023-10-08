@@ -34,6 +34,9 @@
 		E98FE04B2AD32304006410A1 /* Futura-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E98FE0492AD32304006410A1 /* Futura-Medium.ttf */; };
 		E98FE04E2AD3277F006410A1 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE04D2AD3277F006410A1 /* PauseView.swift */; };
 		E98FE0502AD32A1F006410A1 /* EndMatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE04F2AD32A1F006410A1 /* EndMatchView.swift */; };
+		E98FE0522AD33621006410A1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0512AD33621006410A1 /* DetailView.swift */; };
+		E98FE0542AD33644006410A1 /* PreviousMatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0532AD33644006410A1 /* PreviousMatchesView.swift */; };
+		E98FE0582AD33921006410A1 /* DartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0572AD33921006410A1 /* DartRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		E98FE04C2AD32322006410A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E98FE04D2AD3277F006410A1 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		E98FE04F2AD32A1F006410A1 /* EndMatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndMatchView.swift; sourceTree = "<group>"; };
+		E98FE0512AD33621006410A1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E98FE0532AD33644006410A1 /* PreviousMatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousMatchesView.swift; sourceTree = "<group>"; };
+		E98FE0572AD33921006410A1 /* DartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +226,8 @@
 		E98FE03C2AD31B9E006410A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */,
-				E98FE0462AD32142006410A1 /* SecondaryButton.swift */,
+				E98FE0562AD3390F006410A1 /* Rows */,
+				E98FE0552AD33904006410A1 /* Buttons */,
 				E98FE04D2AD3277F006410A1 /* PauseView.swift */,
 			);
 			path = Components;
@@ -246,8 +252,27 @@
 		E98FE03F2AD31BF1006410A1 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				E98FE0512AD33621006410A1 /* DetailView.swift */,
+				E98FE0532AD33644006410A1 /* PreviousMatchesView.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		E98FE0552AD33904006410A1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				E98FE0422AD31EBA006410A1 /* PrimaryButton.swift */,
+				E98FE0462AD32142006410A1 /* SecondaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		E98FE0562AD3390F006410A1 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				E98FE0572AD33921006410A1 /* DartRow.swift */,
+			);
+			path = Rows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,11 +352,14 @@
 				E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */,
 				E96D54BE2ACD9C9100FD8D76 /* CustomARView+Dart.swift in Sources */,
 				E915E3FE2ACCB9D90046F5D7 /* CustomARView+Load.swift in Sources */,
+				E98FE0582AD33921006410A1 /* DartRow.swift in Sources */,
 				E915E3DD2ACC82040046F5D7 /* CustomBox.swift in Sources */,
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
+				E98FE0522AD33621006410A1 /* DetailView.swift in Sources */,
 				E92C4C042ACB6F6600301545 /* GameViewModel.swift in Sources */,
 				E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */,
 				E98FE04E2AD3277F006410A1 /* PauseView.swift in Sources */,
+				E98FE0542AD33644006410A1 /* PreviousMatchesView.swift in Sources */,
 				E98FE0432AD31EBA006410A1 /* PrimaryButton.swift in Sources */,
 				E92C4BF12ACB67A900301545 /* GameView.swift in Sources */,
 				E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */,

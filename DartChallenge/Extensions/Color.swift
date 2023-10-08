@@ -20,5 +20,5 @@ struct ColorTheme {
     let secondary = Color("secondaryColor")
     let terciary = Color("terciaryColor")
     let background = Color("backgroundColor")
-    
+    let rowBg = Color("rowBackgroundColor")
 }
