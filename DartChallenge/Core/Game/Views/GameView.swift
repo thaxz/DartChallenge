@@ -8,7 +8,7 @@
 import SwiftUI
 import ARKit
 
-struct ContentView: View {
+struct GameView: View {
     @StateObject private var coordinator = Coordinator()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
@@ -52,6 +52,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GameView()
     }
 }

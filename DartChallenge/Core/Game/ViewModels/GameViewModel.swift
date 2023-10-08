@@ -1,5 +1,5 @@
 //
-//  ARViewModel.swift
+//  GameViewModel.swift
 //  DartChallenge
 //
 //  Created by thaxz on 02/10/23.
