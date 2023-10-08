@@ -9,7 +9,26 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Image("menuBackground")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            VStack(spacing: 20){
+                Image("logo")
+                    .padding(.top, 70)
+                Spacer()
+                PrimaryButton(title: "play") {
+                    // go to gameview
+                }
+                SecondaryButton(title: "previous macthes") {
+                    // go to previous matches view
+                }
+                Spacer()
+                    .frame(height: 80)
+            }
+            .padding(.horizontal, 20)
+        }
     }
 }
 
