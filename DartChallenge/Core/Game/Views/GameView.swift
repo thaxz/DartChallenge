@@ -10,6 +10,7 @@ import ARKit
 
 struct GameView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @StateObject private var coordinator = Coordinator()
     
     @State var isPaused: Bool = false
@@ -34,7 +35,7 @@ struct GameView: View {
                 PauseView {
                     isPaused = false
                 } mainMenu: {
-                    // go to home view
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
         }
