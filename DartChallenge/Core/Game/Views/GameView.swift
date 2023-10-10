@@ -11,6 +11,8 @@ import ARKit
 struct GameView: View {
     
     @StateObject private var coordinator = Coordinator()
+    
+    @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -18,17 +20,25 @@ struct GameView: View {
             ARViewContainer(coordinator: coordinator)
                 .ignoresSafeArea()
             VStack {
-                pauseSection
+                pauseButton
                 Spacer()
                 trowButton
                 placeBoardButton
             }
-            .padding(.horizontal, 20)
+            .padding(40)
             .onReceive(timer) { _ in
                 ARManager.shared.actionsStream.send(.removeDart)
                 //                ARManager.shared.actionsStream.send(.checkCollision)
             }
+            if isPaused {
+                PauseView {
+                    isPaused = false
+                } mainMenu: {
+                    // go to home view
+                }
+            }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -36,11 +46,11 @@ struct GameView: View {
 
 extension GameView {
     
-    var pauseSection: some View{
+    var pauseButton: some View{
         HStack{
             Spacer()
             Button {
-                // pause
+                isPaused = true
             } label: {
                 Image(systemName: "pause.fill")
                     .resizable()
@@ -64,7 +74,6 @@ extension GameView {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 60)
-        .padding(.horizontal, 30)
     }
     
     var placeBoardButton: some View {
@@ -81,7 +90,6 @@ extension GameView {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 60)
-        .padding(.horizontal, 30)
     }
     
 }
