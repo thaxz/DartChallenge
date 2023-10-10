@@ -18,12 +18,8 @@ struct MenuView: View {
                 Image("logo")
                     .padding(.top, 70)
                 Spacer()
-                PrimaryButton(title: "play") {
-                    // go to gameview
-                }
-                SecondaryButton(title: "previous macthes") {
-                    // go to previous matches view
-                }
+                PrimaryDestination(title: "play", destination: GameView())
+                SecondaryDestination(title: "previous macthes", destination: PreviousMatchesView())
                 Spacer()
                     .frame(height: 80)
             }

@@ -26,12 +26,8 @@ struct EndMatchView: View {
                 pointsSection
                 timeSection
                 Spacer()
-                PrimaryButton(title: "see details") {
-                    // go to details view
-                }
-                SecondaryButton(title: "main menu") {
-                    // go to the main menu
-                }
+                PrimaryDestination(title: "see details", destination: DetailView())
+                SecondaryDestination(title: "main menu", destination: MenuView())
                 Spacer()
                     .frame(height: 80)
             }

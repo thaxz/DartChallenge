@@ -24,9 +24,7 @@ struct PreviousMatchesView: View {
                 // add list with for each macth
                 MacthesRow()
                 Spacer()
-                PrimaryButton(title: "main menu") {
-                    // go to main menu
-                }
+                PrimaryDestination(title: "main menu", destination: MenuView())
             }
             .padding(.horizontal, 20)
         }

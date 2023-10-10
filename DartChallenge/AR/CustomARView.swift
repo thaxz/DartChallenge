@@ -60,14 +60,4 @@ class CustomARView: ARView {
             .store(in: &cancellables)
     }
     
-    // Mock object placed in the scene
-    func placeBlock(){
-        let box = CustomBox(color: .yellow, position: [-0.6, -1, -2])
-        self.installGestures(.all, for: box)
-        box.generateCollisionShapes(recursive: true)
-        self.scene.anchors.append(box)
-        // installing gestures
-        self.installGestures(.init(arrayLiteral: [.rotation, .scale]), for: box)
-    }
-    
 }
