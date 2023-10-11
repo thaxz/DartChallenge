@@ -57,7 +57,7 @@ extension GameView {
         HStack{
             Spacer()
             Text("Darts thrown: \(viewModel.throwNumber)")
-                .font(.custom("Futura-Bold", size: 32))
+                .font(.custom("Futura-Bold", size: 22))
                 .foregroundColor(.white)
             Spacer()
             Button {
@@ -77,7 +77,7 @@ extension GameView {
             viewModel.throwNumber += 1
             if viewModel.throwNumber < 5 {
                 coordinator.placeDart()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                     viewModel.changeBoard()
                 }
             } else if viewModel.throwNumber >= 5 {
