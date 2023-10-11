@@ -11,14 +11,16 @@ import ARKit
 struct GameView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var coordinator = Coordinator()
+    
+    @StateObject var coordinator = Coordinator()
+    @StateObject private var viewModel = GameViewModel()
     
     @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
-            ARViewContainer(coordinator: coordinator)
+            ARViewContainer(coordinator: viewModel.coordinator)
                 .ignoresSafeArea()
             VStack {
                 pauseButton
@@ -33,12 +35,15 @@ struct GameView: View {
             }
             if isPaused {
                 PauseView {
-                    isPaused = false
+                    viewModel.isPaused = false
                 } mainMenu: {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
         }
+        .navigationDestination(isPresented: $viewModel.isGameOver, destination: {
+            EndMatchView()
+        })
         .navigationBarBackButtonHidden(true)
     }
 }
@@ -51,7 +56,7 @@ extension GameView {
         HStack{
             Spacer()
             Button {
-                isPaused = true
+                viewModel.isPaused = true
             } label: {
                 Image(systemName: "pause.fill")
                     .resizable()
@@ -63,8 +68,9 @@ extension GameView {
     
     var trowButton: some View {
         Button {
-            coordinator.placeDart()
-        } label: {
+            viewModel.throwNumber += 1
+            viewModel.throwDart()
+    } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(Color.theme.primary)
