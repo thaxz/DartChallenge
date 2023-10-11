@@ -25,6 +25,7 @@ class CustomARView: ARView {
     /// This is the init that is being used
     convenience init(){
         self.init(frame: UIScreen.main.bounds)
+        placeBoard()
         subscribeToActionStream()
     }
     
