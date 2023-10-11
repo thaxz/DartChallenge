@@ -23,12 +23,8 @@ struct DetailView: View {
                 }
                 dartsSection
                 Spacer()
-                PrimaryButton(title: "previous macthes") {
-                    // go to previous matches
-                }
-                SecondaryButton(title: "main menu") {
-                    // go to main menu
-                }
+                PrimaryDestination(title: "previous macthes", destination: PreviousMatchesView())
+                SecondaryDestination(title: "main menu", destination: MenuView())
             }
             .padding(.horizontal, 20)
         }

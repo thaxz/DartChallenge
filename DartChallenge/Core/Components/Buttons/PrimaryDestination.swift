@@ -1,17 +1,18 @@
 //
-//  PrimaryButton.swift
+//  PrimaryDestination.swift
 //  DartChallenge
 //
-//  Created by thaxz on 08/10/23.
+//  Created by thaxz on 09/10/23.
 //
 
 import SwiftUI
 
-struct PrimaryButton: View {
+struct PrimaryDestination: View {
     let title: String
-    let action: () -> ()
+    let destination: any View
     var body: some View {
-        Button {
+        NavigationLink {
+            AnyView(destination)
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -26,8 +27,8 @@ struct PrimaryButton: View {
     }
 }
 
-struct PrimaryButton_Previews: PreviewProvider {
+struct PrimaryDestination_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(title: "play", action: {})
+        PrimaryDestination(title: "play", destination: MenuView())
     }
 }

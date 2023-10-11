@@ -10,7 +10,10 @@ import ARKit
 
 struct GameView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @StateObject private var coordinator = Coordinator()
+    
+    @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -18,23 +21,25 @@ struct GameView: View {
             ARViewContainer(coordinator: coordinator)
                 .ignoresSafeArea()
             VStack {
-                pauseSection
+                pauseButton
                 Spacer()
-                    PrimaryButton(title: "throw") {
-                        coordinator.placeDart()
-                    }
-                    .padding(.horizontal, 30)
-                    PrimaryButton(title: "place board") {
-                        ARManager.shared.actionsStream.send(.placeBoard)
-                    }
-                    .padding(.horizontal, 30)
+                trowButton
+                placeBoardButton
             }
-            .padding(.horizontal, 20)
+            .padding(40)
             .onReceive(timer) { _ in
                 ARManager.shared.actionsStream.send(.removeDart)
-//                ARManager.shared.actionsStream.send(.checkCollision)
+                //                ARManager.shared.actionsStream.send(.checkCollision)
+            }
+            if isPaused {
+                PauseView {
+                    isPaused = false
+                } mainMenu: {
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -42,11 +47,11 @@ struct GameView: View {
 
 extension GameView {
     
-    var pauseSection: some View{
+    var pauseButton: some View{
         HStack{
             Spacer()
             Button {
-                // pause
+                isPaused = true
             } label: {
                 Image(systemName: "pause.fill")
                     .resizable()
@@ -54,6 +59,38 @@ extension GameView {
                     .foregroundColor(.white)
             }
         }
+    }
+    
+    var trowButton: some View {
+        Button {
+            coordinator.placeDart()
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(Color.theme.primary)
+                Text("trow".uppercased())
+                    .font(.custom("Futura-Medium", size: 22))
+                    .foregroundColor(.white)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 60)
+    }
+    
+    var placeBoardButton: some View {
+        Button {
+            ARManager.shared.actionsStream.send(.placeBoard)
+        } label: {
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundColor(Color.theme.primary)
+                Text("Place board".uppercased())
+                    .font(.custom("Futura-Medium", size: 22))
+                    .foregroundColor(.white)
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 60)
     }
     
 }
