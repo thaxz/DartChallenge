@@ -11,8 +11,7 @@ import ARKit
 struct GameView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    
-    @StateObject var coordinator = Coordinator()
+    @StateObject private var coordinator = Coordinator()
     @StateObject private var viewModel = GameViewModel()
     
     @State var isPaused: Bool = false
@@ -20,7 +19,7 @@ struct GameView: View {
     
     var body: some View {
         ZStack {
-            ARViewContainer(coordinator: viewModel.coordinator)
+            ARViewContainer(coordinator: coordinator)
                 .ignoresSafeArea()
             VStack {
                 pauseButton
@@ -35,16 +34,16 @@ struct GameView: View {
             }
             if isPaused {
                 PauseView {
-                    viewModel.isPaused = false
+                    isPaused = false
                 } mainMenu: {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
         }
-        .navigationDestination(isPresented: $viewModel.isGameOver, destination: {
-            EndMatchView()
-        })
         .navigationBarBackButtonHidden(true)
+        .navigationDestination(isPresented: $viewModel.isGameOver, destination: {
+           EndMatchView()
+        })
     }
 }
 
@@ -56,7 +55,7 @@ extension GameView {
         HStack{
             Spacer()
             Button {
-                viewModel.isPaused = true
+                isPaused = true
             } label: {
                 Image(systemName: "pause.fill")
                     .resizable()
@@ -69,8 +68,16 @@ extension GameView {
     var trowButton: some View {
         Button {
             viewModel.throwNumber += 1
-            viewModel.throwDart()
-    } label: {
+            if viewModel.throwNumber < 5 {
+                coordinator.placeDart()
+            } else if viewModel.throwNumber >= 5 {
+                coordinator.placeDart()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    viewModel.gameOver()
+                }
+            }
+            
+        } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundColor(Color.theme.primary)

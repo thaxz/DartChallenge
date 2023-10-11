@@ -22,6 +22,9 @@ struct ARViewContainer: UIViewRepresentable {
 }
 
 class Coordinator: ObservableObject {
+    
+    static let shared = Coordinator()
+    
     weak var arView: CustomARView?
     
     func placeDart() {
