@@ -22,7 +22,7 @@ struct GameView: View {
             ARViewContainer(coordinator: coordinator)
                 .ignoresSafeArea()
             VStack {
-                pauseButton
+                headerSection
                 Spacer()
                 trowButton
             }
@@ -53,7 +53,7 @@ struct GameView: View {
 
 extension GameView {
     
-    var pauseButton: some View{
+    var headerSection: some View{
         HStack{
             Spacer()
             Text("Darts thrown: \(viewModel.throwNumber)")
@@ -70,6 +70,7 @@ extension GameView {
             }
         }
     }
+    
     
     var trowButton: some View {
         Button {
