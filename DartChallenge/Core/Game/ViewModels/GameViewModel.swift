@@ -13,15 +13,18 @@ class GameViewModel: ObservableObject {
     
     @Published var isGameOver: Bool = false
     @Published var isPaused: Bool = false
+    @Published var dartResults: [Bool] = []
     
-    func throwDart(){
-        
+    var startTime: Date? = nil
+    var endTime: Date? = nil
+    
+    func changeBoard(){
+        ARManager.shared.actionsStream.send(.placeBoard)
     }
     
     func gameOver(){
-        self.isGameOver = true
-        
-        // criar end time da match
+        isGameOver = true
+        endTime = Date()
     }
     
     

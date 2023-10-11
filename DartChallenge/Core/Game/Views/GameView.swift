@@ -25,7 +25,6 @@ struct GameView: View {
                 pauseButton
                 Spacer()
                 trowButton
-                placeBoardButton
             }
             .padding(40)
             .onReceive(timer) { _ in
@@ -40,6 +39,9 @@ struct GameView: View {
                 }
             }
         }
+        .onAppear{
+            viewModel.startTime = Date()
+        }
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $viewModel.isGameOver, destination: {
            EndMatchView()
@@ -53,6 +55,10 @@ extension GameView {
     
     var pauseButton: some View{
         HStack{
+            Spacer()
+            Text("Darts thrown: \(viewModel.throwNumber)")
+                .font(.custom("Futura-Bold", size: 32))
+                .foregroundColor(.white)
             Spacer()
             Button {
                 isPaused = true
@@ -70,13 +76,15 @@ extension GameView {
             viewModel.throwNumber += 1
             if viewModel.throwNumber < 5 {
                 coordinator.placeDart()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                    viewModel.changeBoard()
+                }
             } else if viewModel.throwNumber >= 5 {
                 coordinator.placeDart()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                     viewModel.gameOver()
                 }
             }
-            
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -90,21 +98,7 @@ extension GameView {
         .frame(height: 60)
     }
     
-    var placeBoardButton: some View {
-        Button {
-            ARManager.shared.actionsStream.send(.placeBoard)
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundColor(Color.theme.primary)
-                Text("Place board".uppercased())
-                    .font(.custom("Futura-Medium", size: 22))
-                    .foregroundColor(.white)
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .frame(height: 60)
-    }
+
     
 }
 
