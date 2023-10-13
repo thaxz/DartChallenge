@@ -16,11 +16,11 @@ struct DetailView: View {
     var body: some View {
         ZStack(alignment: .leading){
             Color.theme.background.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 50){
+            VStack(alignment: .leading, spacing: 30){
                 Text("match nº \(match.id)".uppercased())
                     .font(.custom("Futura-Bold", size: 30))
                     .foregroundColor(.white)
-                    .padding(.top, 70)
+                    .padding(.top, 50)
                 HStack {
                     pointsSection
                     Spacer()
@@ -36,6 +36,7 @@ struct DetailView: View {
                         routerManager.popToRoot()
                     }
                 }
+                .padding(.bottom, 20)
             }
             .padding(.horizontal, 20)
         }
@@ -73,7 +74,7 @@ extension DetailView {
                 Text("\(match.timePassed)".uppercased())
                     .font(.custom("Futura-Bold", size: 16))
                     .foregroundColor(.white)
-                Text("minutes".uppercased())
+                Text("seconds".uppercased())
                     .font(.custom("Futura-Medium", size: 20))
                     .foregroundColor(.white)
             }

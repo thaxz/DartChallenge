@@ -17,7 +17,7 @@ struct MacthesRow: View {
                 Text("Match nº \(match.id)".uppercased())
                     .font(.custom("Futura-Bold", size: 22))
                     .foregroundColor(.white)
-                Text("TOTAL TIME: \(match.timePassed) minutes".uppercased())
+                Text("TOTAL TIME: \(match.timePassed) seconds".uppercased())
                     .font(.custom("Futura-Medium", size: 16))
                     .foregroundColor(.white)
                 Text("POINTS: \(match.points)".uppercased())

@@ -37,15 +37,14 @@ class GameViewModel: ObservableObject {
               let startTime = startTime else {
             return
         }
-        let timePassed = calculateDifferenceInMinutes(between: startTime, and: endTime)
+        let timePassed = calculateDifferenceInSeconds(between: startTime, and: endTime)
         
         self.match = Match(points: self.points, dartStatus: [true, false, true, true, false], timePassed: timePassed)
     }
     
-    func calculateDifferenceInMinutes(between startDate: Date, and endDate: Date) -> Int {
+    func calculateDifferenceInSeconds(between startDate: Date, and endDate: Date) -> Int {
         let differenceInSeconds = Int(endDate.timeIntervalSince(startDate))
-        let differenceInMinutes = differenceInSeconds / 60
-        return differenceInMinutes
+        return differenceInSeconds
     }
     
 }
