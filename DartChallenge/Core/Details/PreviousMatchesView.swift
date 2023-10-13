@@ -11,6 +11,9 @@ struct PreviousMatchesView: View {
     
     @EnvironmentObject private var routerManager: NavigationRouter
     
+    // push from core data
+    let matches: [Match] = []
+    
     var body: some View {
         ZStack {
             Color.theme.background.ignoresSafeArea()
@@ -24,8 +27,9 @@ struct PreviousMatchesView: View {
                         .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
                 }
-                // add list with for each macth
-                MacthesRow()
+                ForEach(matches) { match in
+                    MacthesRow(match: match)
+                }
                 Spacer()
                 PrimaryButton(title: "main menu") {
                     routerManager.popToRoot()

@@ -17,7 +17,7 @@ struct DetailView: View {
         ZStack(alignment: .leading){
             Color.theme.background.ignoresSafeArea()
             VStack(alignment: .leading, spacing: 32){
-                Text("match nº X".uppercased())
+                Text("match nº \(match.id)".uppercased())
                     .font(.custom("Futura-Bold", size: 30))
                     .foregroundColor(.white)
                     .padding(.top, 70)
@@ -50,7 +50,7 @@ extension DetailView {
                 .foregroundColor(Color.theme.rowBg)
             VStack{
                 Image("medalImage")
-                Text("x".uppercased())
+                Text("\(match.points)".uppercased())
                     .font(.custom("Futura-Bold", size: 16))
                     .foregroundColor(.white)
                 Text("points".uppercased())
@@ -67,7 +67,7 @@ extension DetailView {
                 .foregroundColor(Color.theme.rowBg)
             VStack{
                 Image("clockImage")
-                Text("XX".uppercased())
+                Text("\(match.timePassed)".uppercased())
                     .font(.custom("Futura-Bold", size: 16))
                     .foregroundColor(.white)
                 Text("minutes".uppercased())
@@ -95,7 +95,7 @@ extension DetailView {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(match: mockMatches[0])
             .environmentObject(NavigationRouter())
     }
 }
