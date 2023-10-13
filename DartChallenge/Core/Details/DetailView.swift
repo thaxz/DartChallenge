@@ -16,7 +16,7 @@ struct DetailView: View {
     var body: some View {
         ZStack(alignment: .leading){
             Color.theme.background.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 32){
+            VStack(alignment: .leading, spacing: 50){
                 Text("match nº \(match.id)".uppercased())
                     .font(.custom("Futura-Bold", size: 30))
                     .foregroundColor(.white)
@@ -28,15 +28,18 @@ struct DetailView: View {
                 }
                 dartsSection
                 Spacer()
-                PrimaryButton(title: "previous macthes") {
-                    routerManager.popToLast()
-                }
-                SecondaryButton(title: "main menu") {
-                    routerManager.popToRoot()
+                VStack(spacing: 24){
+                    PrimaryButton(title: "previous macthes") {
+                        routerManager.popToLast()
+                    }
+                    SecondaryButton(title: "main menu") {
+                        routerManager.popToRoot()
+                    }
                 }
             }
             .padding(.horizontal, 20)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -58,7 +61,7 @@ extension DetailView {
                     .foregroundColor(.white)
             }
         }
-        .frame(width: 160, height: 160)
+        .frame(width: 180, height: 180)
     }
     
     var timeSection: some View {
@@ -75,20 +78,22 @@ extension DetailView {
                     .foregroundColor(.white)
             }
         }
-        .frame(width: 160, height: 160)
+        .frame(width: 180, height: 180)
     }
     
     var dartsSection: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.theme.rowBg)
-            .frame(width: 350, height: 180)
-            VStack{
-                // todo: put in a list
-                DartRow(status: "MISS", number: 2)
+            VStack(spacing: 20){
+                ForEach(0..<5){ aux in
+                    DartRow(status: match.dartStatus[aux].description, number: aux + 1)
+                }
             }
+            .padding()
         }
-        .navigationBarBackButtonHidden(true)
+        .frame(height: 180)
+        
     }
     
 }
