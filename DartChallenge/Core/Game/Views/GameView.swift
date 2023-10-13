@@ -29,7 +29,7 @@ struct GameView: View {
             .padding(40)
             .onReceive(timer) { _ in
                 ARManager.shared.actionsStream.send(.removeDart)
-                //                ARManager.shared.actionsStream.send(.checkCollision)
+//                ARManager.shared.actionsStream.send(.checkCollision)
             }
             if isPaused {
                 PauseView {
@@ -44,7 +44,7 @@ struct GameView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $viewModel.isGameOver, destination: {
-           EndMatchView()
+            EndMatchView()
         })
     }
 }
@@ -99,7 +99,7 @@ extension GameView {
         .frame(height: 60)
     }
     
-
+    
     
 }
 

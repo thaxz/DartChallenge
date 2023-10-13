@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @StateObject private var routeManager = NavigationRouter()
+    
     var body: some View {
         ZStack {
             Image("menuBackground")
