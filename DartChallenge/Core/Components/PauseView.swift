@@ -29,6 +29,7 @@ struct PauseView: View {
                         .foregroundColor(.white)
                     HStack{
                         Button {
+                            ARManager.shared.actionsStream.send(.play)
                             routerManager.popToLast()
                         } label: {
                             RoundedRectangle(cornerRadius: 20)

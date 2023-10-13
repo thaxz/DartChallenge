@@ -11,6 +11,8 @@ struct DetailView: View {
     
     @EnvironmentObject private var routerManager: NavigationRouter
     
+    let match: Match
+    
     var body: some View {
         ZStack(alignment: .leading){
             Color.theme.background.ignoresSafeArea()

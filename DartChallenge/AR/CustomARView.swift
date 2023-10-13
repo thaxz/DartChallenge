@@ -56,6 +56,10 @@ class CustomARView: ARView {
                     self?.updateDart()
                 case .checkCollision:
                     self?.checkCollisions()
+                case .pause:
+                    self?.session.pause()
+                case .play:
+                    self?.session.run(ARWorldTrackingConfiguration())
                 }
             }
             .store(in: &cancellables)

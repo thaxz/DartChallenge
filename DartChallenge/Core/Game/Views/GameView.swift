@@ -60,6 +60,7 @@ extension GameView {
                 .foregroundColor(.white)
             Spacer()
             Button {
+                ARManager.shared.actionsStream.send(.pause)
                 routerManager.push(to: .pause)
             } label: {
                 Image(systemName: "pause.fill")
