@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct PrimaryDestination: View {
+struct PrimaryButton: View {
     let title: String
-    let destination: any View
+    let action: () -> ()
     var body: some View {
-        NavigationLink {
-            AnyView(destination)
+        Button {
+            action()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -27,8 +27,8 @@ struct PrimaryDestination: View {
     }
 }
 
-struct PrimaryDestination_Previews: PreviewProvider {
+struct PrimaryLabel_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryDestination(title: "play", destination: MenuView())
+        PrimaryButton(title: "play", action: {})
     }
 }

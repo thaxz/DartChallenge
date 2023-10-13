@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PauseView: View {
     
+    @EnvironmentObject private var routerManager: NavigationRouter
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -27,7 +29,7 @@ struct PauseView: View {
                         .foregroundColor(.white)
                     HStack{
                         Button {
-                            // go to gameview and unpause game
+                            routerManager.popToLast()
                         } label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color.theme.primary)
@@ -41,7 +43,7 @@ struct PauseView: View {
                         }
                         Spacer()
                         Button {
-                           // go to main menu
+                            routerManager.popToRoot()
                         } label: {
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(Color.theme.primary)
@@ -65,5 +67,6 @@ struct PauseView: View {
 struct PauseView_Previews: PreviewProvider {
     static var previews: some View {
         PauseView()
+            .environmentObject(NavigationRouter())
     }
 }

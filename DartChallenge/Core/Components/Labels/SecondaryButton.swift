@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct SecondaryDestination: View {
+struct SecondaryButton: View {
     let title: String
-    let destination: any View
+    let action: () -> ()
     var body: some View {
-        NavigationLink {
-            AnyView(destination)
+        Button {
+            action()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
@@ -32,6 +32,6 @@ struct SecondaryDestination: View {
 
 struct SecondaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        SecondaryDestination(title: "previous matches", destination: EmptyView())
+        SecondaryButton(title: "previous matches", action: {})
     }
 }

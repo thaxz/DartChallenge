@@ -14,6 +14,9 @@ struct GameView: View {
     @StateObject private var coordinator = Coordinator()
     @StateObject private var viewModel = GameViewModel()
     
+    @EnvironmentObject private var routerManager: NavigationRouter
+    
+    
     @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -32,11 +35,7 @@ struct GameView: View {
 //                ARManager.shared.actionsStream.send(.checkCollision)
             }
             if isPaused {
-                PauseView {
-                    isPaused = false
-                } mainMenu: {
-                    presentationMode.wrappedValue.dismiss()
-                }
+                PauseView()
             }
         }
         .onAppear{
@@ -61,7 +60,7 @@ extension GameView {
                 .foregroundColor(.white)
             Spacer()
             Button {
-                isPaused = true
+                routerManager.push(to: .pause)
             } label: {
                 Image(systemName: "pause.fill")
                     .resizable()
@@ -106,5 +105,6 @@ extension GameView {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
+            .environmentObject(NavigationRouter())
     }
 }

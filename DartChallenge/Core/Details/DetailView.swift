@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DetailView: View {
+    
+    @EnvironmentObject private var routerManager: NavigationRouter
+    
     var body: some View {
         ZStack(alignment: .leading){
             Color.theme.background.ignoresSafeArea()
@@ -23,8 +26,12 @@ struct DetailView: View {
                 }
                 dartsSection
                 Spacer()
-                PrimaryDestination(title: "previous macthes", destination: PreviousMatchesView())
-                SecondaryDestination(title: "main menu", destination: MenuView())
+                PrimaryButton(title: "previous macthes") {
+                    routerManager.popToLast()
+                }
+                SecondaryButton(title: "main menu") {
+                    routerManager.popToRoot()
+                }
             }
             .padding(.horizontal, 20)
         }
@@ -86,5 +93,6 @@ extension DetailView {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView()
+            .environmentObject(NavigationRouter())
     }
 }
