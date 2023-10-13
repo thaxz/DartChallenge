@@ -10,6 +10,9 @@
 		E90CB1342ACEF73E00A01FBA /* CustomARView+Collisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90CB1332ACEF73E00A01FBA /* CustomARView+Collisions.swift */; };
 		E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915E3FB2ACCB8C20046F5D7 /* Entity.swift */; };
 		E915E3FE2ACCB9D90046F5D7 /* CustomARView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */; };
+		E92B72262AD9B2AB00F85D34 /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B72252AD9B2AB00F85D34 /* NavigationRouter.swift */; };
+		E92B72282AD9B2C600F85D34 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B72272AD9B2C600F85D34 /* Route.swift */; };
+		E92B722A2AD9B2ED00F85D34 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92B72292AD9B2ED00F85D34 /* Match.swift */; };
 		E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4BEE2ACB67A900301545 /* DartChallengeApp.swift */; };
 		E92C4BF12ACB67A900301545 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4BF02ACB67A900301545 /* GameView.swift */; };
 		E92C4BF32ACB67AA00301545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E92C4BF22ACB67AA00301545 /* Assets.xcassets */; };
@@ -20,7 +23,7 @@
 		E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C062ACB6F8300301545 /* ARAction.swift */; };
 		E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C082ACB6FDC00301545 /* ARManager.swift */; };
 		E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C0B2ACB816D00301545 /* Dart.rcproject */; };
-		E952C2742AD4261D0011FDB9 /* PrimaryDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952C2732AD4261D0011FDB9 /* PrimaryDestination.swift */; };
+		E952C2742AD4261D0011FDB9 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952C2732AD4261D0011FDB9 /* PrimaryButton.swift */; };
 		E96D54BE2ACD9C9100FD8D76 /* CustomARView+Dart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */; };
 		E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */; };
 		E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54C12ACDA05A00FD8D76 /* Float.swift */; };
@@ -28,7 +31,7 @@
 		E97AAF612ACC30D100FBE4BB /* firstDart.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */; };
 		E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0402AD31E15006410A1 /* MenuView.swift */; };
 		E98FE0452AD31EC9006410A1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0442AD31EC9006410A1 /* Color.swift */; };
-		E98FE0472AD32142006410A1 /* SecondaryDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0462AD32142006410A1 /* SecondaryDestination.swift */; };
+		E98FE0472AD32142006410A1 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE0462AD32142006410A1 /* SecondaryButton.swift */; };
 		E98FE04A2AD32304006410A1 /* Futura-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E98FE0482AD32304006410A1 /* Futura-Bold.ttf */; };
 		E98FE04B2AD32304006410A1 /* Futura-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E98FE0492AD32304006410A1 /* Futura-Medium.ttf */; };
 		E98FE04E2AD3277F006410A1 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98FE04D2AD3277F006410A1 /* PauseView.swift */; };
@@ -43,6 +46,9 @@
 		E90CB1332ACEF73E00A01FBA /* CustomARView+Collisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Collisions.swift"; sourceTree = "<group>"; };
 		E915E3FB2ACCB8C20046F5D7 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Load.swift"; sourceTree = "<group>"; };
+		E92B72252AD9B2AB00F85D34 /* NavigationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
+		E92B72272AD9B2C600F85D34 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		E92B72292AD9B2ED00F85D34 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		E92C4BEB2ACB67A900301545 /* DartChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DartChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E92C4BEE2ACB67A900301545 /* DartChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartChallengeApp.swift; sourceTree = "<group>"; };
 		E92C4BF02ACB67A900301545 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -54,7 +60,7 @@
 		E92C4C062ACB6F8300301545 /* ARAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAction.swift; sourceTree = "<group>"; };
 		E92C4C082ACB6FDC00301545 /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		E92C4C0B2ACB816D00301545 /* Dart.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Dart.rcproject; sourceTree = "<group>"; };
-		E952C2732AD4261D0011FDB9 /* PrimaryDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryDestination.swift; sourceTree = "<group>"; };
+		E952C2732AD4261D0011FDB9 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Dart.swift"; sourceTree = "<group>"; };
 		E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+DartBoard.swift"; sourceTree = "<group>"; };
 		E96D54C12ACDA05A00FD8D76 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
@@ -62,7 +68,7 @@
 		E97AAF5F2ACC30D100FBE4BB /* firstDart.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = firstDart.usdz; sourceTree = "<group>"; };
 		E98FE0402AD31E15006410A1 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E98FE0442AD31EC9006410A1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		E98FE0462AD32142006410A1 /* SecondaryDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryDestination.swift; sourceTree = "<group>"; };
+		E98FE0462AD32142006410A1 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		E98FE0482AD32304006410A1 /* Futura-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Bold.ttf"; sourceTree = "<group>"; };
 		E98FE0492AD32304006410A1 /* Futura-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura-Medium.ttf"; sourceTree = "<group>"; };
 		E98FE04C2AD32322006410A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				E92C4C082ACB6FDC00301545 /* ARManager.swift */,
+				E92B72252AD9B2AB00F85D34 /* NavigationRouter.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -169,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				E92C4C062ACB6F8300301545 /* ARAction.swift */,
+				E92B72272AD9B2C600F85D34 /* Route.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 		E98FE03B2AD31B88006410A1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E92B72292AD9B2ED00F85D34 /* Match.swift */,
 				E92C4C052ACB6F7100301545 /* Enums */,
 			);
 			path = Models;
@@ -226,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				E98FE0562AD3390F006410A1 /* Rows */,
-				E98FE0552AD33904006410A1 /* Buttons */,
+				E98FE0552AD33904006410A1 /* Labels */,
 				E98FE04D2AD3277F006410A1 /* PauseView.swift */,
 			);
 			path = Components;
@@ -257,13 +266,13 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
-		E98FE0552AD33904006410A1 /* Buttons */ = {
+		E98FE0552AD33904006410A1 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
-				E952C2732AD4261D0011FDB9 /* PrimaryDestination.swift */,
-				E98FE0462AD32142006410A1 /* SecondaryDestination.swift */,
+				E952C2732AD4261D0011FDB9 /* PrimaryButton.swift */,
+				E98FE0462AD32142006410A1 /* SecondaryButton.swift */,
 			);
-			path = Buttons;
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		E98FE0562AD3390F006410A1 /* Rows */ = {
@@ -352,6 +361,7 @@
 				E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */,
 				E96D54BE2ACD9C9100FD8D76 /* CustomARView+Dart.swift in Sources */,
 				E915E3FE2ACCB9D90046F5D7 /* CustomARView+Load.swift in Sources */,
+				E92B72262AD9B2AB00F85D34 /* NavigationRouter.swift in Sources */,
 				E98FE0582AD33921006410A1 /* DartRow.swift in Sources */,
 				E98FE05A2AD33D82006410A1 /* MacthesRow.swift in Sources */,
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
@@ -359,13 +369,15 @@
 				E92C4C042ACB6F6600301545 /* GameViewModel.swift in Sources */,
 				E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */,
 				E98FE04E2AD3277F006410A1 /* PauseView.swift in Sources */,
+				E92B722A2AD9B2ED00F85D34 /* Match.swift in Sources */,
 				E98FE0542AD33644006410A1 /* PreviousMatchesView.swift in Sources */,
 				E92C4BF12ACB67A900301545 /* GameView.swift in Sources */,
 				E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */,
-				E98FE0472AD32142006410A1 /* SecondaryDestination.swift in Sources */,
+				E98FE0472AD32142006410A1 /* SecondaryButton.swift in Sources */,
 				E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */,
 				E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */,
-				E952C2742AD4261D0011FDB9 /* PrimaryDestination.swift in Sources */,
+				E92B72282AD9B2C600F85D34 /* Route.swift in Sources */,
+				E952C2742AD4261D0011FDB9 /* PrimaryButton.swift in Sources */,
 				E92C4BEF2ACB67A900301545 /* DartChallengeApp.swift in Sources */,
 				E92C4C012ACB69A100301545 /* CustomARView.swift in Sources */,
 				E92C4BFF2ACB698200301545 /* ARViewContainer.swift in Sources */,

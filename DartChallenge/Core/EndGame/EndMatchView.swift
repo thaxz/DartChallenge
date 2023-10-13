@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EndMatchView: View {
+    
+    @EnvironmentObject private var routerManager: NavigationRouter
+    
     var body: some View {
         ZStack {
             Image("endMatchBackground")
@@ -26,8 +29,13 @@ struct EndMatchView: View {
                 pointsSection
                 timeSection
                 Spacer()
-                PrimaryDestination(title: "see details", destination: DetailView())
-                SecondaryDestination(title: "main menu", destination: MenuView())
+                PrimaryButton(title: "see details") {
+                    // pass match
+                    routerManager.push(to: .matchDetails(match: Match(startDate: Date(), endDate: Date(), dartStatus: [])))
+                }
+                SecondaryButton(title: "main menu") {
+                    routerManager.popToRoot()
+                }
                 Spacer()
                     .frame(height: 80)
             }
@@ -69,5 +77,6 @@ extension EndMatchView {
 struct EndMatchView_Previews: PreviewProvider {
     static var previews: some View {
         EndMatchView()
+            .environmentObject(NavigationRouter())
     }
 }

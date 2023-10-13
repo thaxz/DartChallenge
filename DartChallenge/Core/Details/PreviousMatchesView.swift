@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PreviousMatchesView: View {
+    
+    @EnvironmentObject private var routerManager: NavigationRouter
+    
     var body: some View {
         ZStack {
             Color.theme.background.ignoresSafeArea()
@@ -24,7 +27,9 @@ struct PreviousMatchesView: View {
                 // add list with for each macth
                 MacthesRow()
                 Spacer()
-                PrimaryDestination(title: "main menu", destination: MenuView())
+                PrimaryButton(title: "main menu") {
+                    routerManager.popToRoot()
+                }
             }
             .padding(.horizontal, 20)
         }
@@ -34,5 +39,6 @@ struct PreviousMatchesView: View {
 struct PreviousMatchesView_Previews: PreviewProvider {
     static var previews: some View {
         PreviousMatchesView()
+            .environmentObject(NavigationRouter())
     }
 }

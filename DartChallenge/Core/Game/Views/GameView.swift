@@ -14,6 +14,9 @@ struct GameView: View {
     @StateObject private var coordinator = Coordinator()
     @StateObject private var viewModel = GameViewModel()
     
+    @EnvironmentObject private var routerManager: NavigationRouter
+    
+    
     @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -22,21 +25,17 @@ struct GameView: View {
             ARViewContainer(coordinator: coordinator)
                 .ignoresSafeArea()
             VStack {
-                pauseButton
+                headerSection
                 Spacer()
                 trowButton
             }
             .padding(40)
             .onReceive(timer) { _ in
                 ARManager.shared.actionsStream.send(.removeDart)
-                //                ARManager.shared.actionsStream.send(.checkCollision)
+//                ARManager.shared.actionsStream.send(.checkCollision)
             }
             if isPaused {
-                PauseView {
-                    isPaused = false
-                } mainMenu: {
-                    presentationMode.wrappedValue.dismiss()
-                }
+                PauseView()
             }
         }
         .onAppear{
@@ -44,7 +43,7 @@ struct GameView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $viewModel.isGameOver, destination: {
-           EndMatchView()
+            EndMatchView()
         })
     }
 }
@@ -53,15 +52,15 @@ struct GameView: View {
 
 extension GameView {
     
-    var pauseButton: some View{
+    var headerSection: some View{
         HStack{
             Spacer()
             Text("Darts thrown: \(viewModel.throwNumber)")
-                .font(.custom("Futura-Bold", size: 32))
+                .font(.custom("Futura-Bold", size: 22))
                 .foregroundColor(.white)
             Spacer()
             Button {
-                isPaused = true
+                routerManager.push(to: .pause)
             } label: {
                 Image(systemName: "pause.fill")
                     .resizable()
@@ -71,12 +70,13 @@ extension GameView {
         }
     }
     
+    
     var trowButton: some View {
         Button {
             viewModel.throwNumber += 1
             if viewModel.throwNumber < 5 {
                 coordinator.placeDart()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5){
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                     viewModel.changeBoard()
                 }
             } else if viewModel.throwNumber >= 5 {
@@ -98,12 +98,13 @@ extension GameView {
         .frame(height: 60)
     }
     
-
+    
     
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         GameView()
+            .environmentObject(NavigationRouter())
     }
 }
