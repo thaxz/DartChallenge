@@ -41,6 +41,7 @@ struct EndMatchView: View {
             }
             .padding(.horizontal, 20)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

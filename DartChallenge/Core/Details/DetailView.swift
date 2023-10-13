@@ -86,6 +86,7 @@ extension DetailView {
                 DartRow(status: "MISS", number: 2)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
 }

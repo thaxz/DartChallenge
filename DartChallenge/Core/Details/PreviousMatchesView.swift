@@ -33,6 +33,7 @@ struct PreviousMatchesView: View {
             }
             .padding(.horizontal, 20)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

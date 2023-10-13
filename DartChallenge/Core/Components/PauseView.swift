@@ -61,6 +61,7 @@ struct PauseView: View {
             }
             .frame(width: 320, height: 340)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
