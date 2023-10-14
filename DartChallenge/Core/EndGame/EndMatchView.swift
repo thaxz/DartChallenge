@@ -11,6 +11,8 @@ struct EndMatchView: View {
     
     @EnvironmentObject private var routerManager: NavigationRouter
     
+    let match: Match
+    
     var body: some View {
         ZStack {
             Image("endMatchBackground")
@@ -31,7 +33,7 @@ struct EndMatchView: View {
                 Spacer()
                 PrimaryButton(title: "see details") {
                     // pass match
-                    routerManager.push(to: .matchDetails(match: Match(startDate: Date(), endDate: Date(), dartStatus: [])))
+                    routerManager.push(to: .matchDetails(match: match))
                 }
                 SecondaryButton(title: "main menu") {
                     routerManager.popToRoot()
@@ -41,6 +43,7 @@ struct EndMatchView: View {
             }
             .padding(.horizontal, 20)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -53,7 +56,7 @@ extension EndMatchView {
             Text("YOU ACHIEVED")
                 .font(.custom("Futura-Medium", size: 22))
                 .foregroundColor(.white)
-            Text("X POINTS")
+            Text("\(match.points) POINTS")
                 .font(.custom("Futura-Medium", size: 22))
                 .underline()
                 .foregroundColor(.white)
@@ -66,7 +69,7 @@ extension EndMatchView {
                 .resizable()
                 .foregroundColor(Color.theme.primary)
                 .frame(width: 26, height: 26)
-            Text("IN X MINUTES".uppercased())
+            Text("IN \(match.timePassed) SECONDS".uppercased())
                 .font(.custom("Futura-Medium", size: 22))
                 .foregroundColor(Color.theme.primary)
         }
@@ -76,7 +79,7 @@ extension EndMatchView {
 
 struct EndMatchView_Previews: PreviewProvider {
     static var previews: some View {
-        EndMatchView()
+        EndMatchView(match: mockMatches[0])
             .environmentObject(NavigationRouter())
     }
 }

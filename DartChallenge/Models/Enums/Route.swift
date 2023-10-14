@@ -30,10 +30,10 @@ extension Route: View {
         case .pause:
             PauseView()
         case .endMatch(let match):
-            EndMatchView()
+            EndMatchView(match: match)
         case .matchDetails(let match):
-            DetailView()
-        case .previousMatches(let matches):
+            DetailView(match: match)
+        case .previousMatches:
             PreviousMatchesView()
         }
     }
@@ -59,8 +59,8 @@ extension Route: Hashable {
             return lshItem.id == rhsItem.id
         case (.matchDetails(let lshItem), .matchDetails(let rhsItem)):
             return lshItem.id == rhsItem.id
-        case (.previousMatches(let lshItem), .previousMatches(let rhsItem)):
-            return lshItem == rhsItem
+        case (.previousMatches, .previousMatches):
+            return true
         default:
             return false
         }

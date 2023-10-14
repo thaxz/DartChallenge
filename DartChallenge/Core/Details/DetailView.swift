@@ -11,14 +11,16 @@ struct DetailView: View {
     
     @EnvironmentObject private var routerManager: NavigationRouter
     
+    let match: Match
+    
     var body: some View {
         ZStack(alignment: .leading){
             Color.theme.background.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 32){
-                Text("match nº X".uppercased())
+            VStack(alignment: .leading, spacing: 30){
+                Text("match nº \(match.id)".uppercased())
                     .font(.custom("Futura-Bold", size: 30))
                     .foregroundColor(.white)
-                    .padding(.top, 70)
+                    .padding(.top, 50)
                 HStack {
                     pointsSection
                     Spacer()
@@ -26,15 +28,19 @@ struct DetailView: View {
                 }
                 dartsSection
                 Spacer()
-                PrimaryButton(title: "previous macthes") {
-                    routerManager.popToLast()
+                VStack(spacing: 24){
+                    PrimaryButton(title: "previous macthes") {
+                        routerManager.popToLast()
+                    }
+                    SecondaryButton(title: "main menu") {
+                        routerManager.popToRoot()
+                    }
                 }
-                SecondaryButton(title: "main menu") {
-                    routerManager.popToRoot()
-                }
+                .padding(.bottom, 20)
             }
             .padding(.horizontal, 20)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -48,7 +54,7 @@ extension DetailView {
                 .foregroundColor(Color.theme.rowBg)
             VStack{
                 Image("medalImage")
-                Text("x".uppercased())
+                Text("\(match.points)".uppercased())
                     .font(.custom("Futura-Bold", size: 16))
                     .foregroundColor(.white)
                 Text("points".uppercased())
@@ -56,7 +62,7 @@ extension DetailView {
                     .foregroundColor(.white)
             }
         }
-        .frame(width: 160, height: 160)
+        .frame(width: 180, height: 180)
     }
     
     var timeSection: some View {
@@ -65,34 +71,37 @@ extension DetailView {
                 .foregroundColor(Color.theme.rowBg)
             VStack{
                 Image("clockImage")
-                Text("XX".uppercased())
+                Text("\(match.timePassed)".uppercased())
                     .font(.custom("Futura-Bold", size: 16))
                     .foregroundColor(.white)
-                Text("minutes".uppercased())
+                Text("seconds".uppercased())
                     .font(.custom("Futura-Medium", size: 20))
                     .foregroundColor(.white)
             }
         }
-        .frame(width: 160, height: 160)
+        .frame(width: 180, height: 180)
     }
     
     var dartsSection: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.theme.rowBg)
-            .frame(width: 350, height: 180)
-            VStack{
-                // todo: put in a list
-                DartRow(status: "MISS", number: 2)
+            VStack(spacing: 20){
+                ForEach(0..<5){ aux in
+                    DartRow(status: match.dartStatus[aux].description, number: aux + 1)
+                }
             }
+            .padding()
         }
+        .frame(height: 180)
+        
     }
     
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(match: mockMatches[0])
             .environmentObject(NavigationRouter())
     }
 }

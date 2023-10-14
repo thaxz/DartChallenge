@@ -16,9 +16,9 @@ struct DartRow: View {
                 .font(.custom("Futura-Medium", size: 18))
                 .foregroundColor(.white)
             Spacer()
-            Text("\(status)")
+            Text(status == "true" ? "HIT" : "MISS")
                 .font(.custom("Futura-Bold", size: 18))
-                .foregroundColor(status == "HIT" ? Color.theme.terciary : Color.theme.primary)
+                .foregroundColor(status == "true" ? Color.theme.terciary : Color.theme.primary)
         }
     }
 }

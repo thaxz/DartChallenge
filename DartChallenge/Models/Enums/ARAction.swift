@@ -14,4 +14,6 @@ enum ARAction {
     case placeBoard
     case removeDart
     case checkCollision
+    case pause
+    case play
 }

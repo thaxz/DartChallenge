@@ -9,9 +9,26 @@ import Foundation
 
 struct Match: Identifiable, Hashable {
     
-    let id = UUID()
-    let startDate: Date
-    let endDate: Date
+    static var idCounter = 1
+    var id: Int
+    let points: Int
     var dartStatus: [Bool]
+    let timePassed: Int
+    
+    init(points: Int, dartStatus: [Bool], timePassed: Int) {
+        self.id = Match.idCounter
+        Match.idCounter += 1
+        self.points = points
+        self.dartStatus = dartStatus
+        self.timePassed = timePassed
+    }
     
 }
+
+let mockMatches: [Match] = [
+    Match(points: 3, dartStatus: [false, true, true, false, true], timePassed: 60),
+    Match(points: 5, dartStatus: [true, true, true, true, true], timePassed: 120),
+    
+]
+
+let testMacthes: [Match] = []

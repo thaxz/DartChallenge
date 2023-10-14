@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct MacthesRow: View {
-    // ADD Task as a property to populate it
+    let match: Match
     var body: some View {
         ZStack(alignment: .leading){
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.theme.rowBg)
             VStack(alignment: .leading, spacing: 8){
-                Text("Match nº".uppercased())
+                Text("Match nº \(match.id)".uppercased())
                     .font(.custom("Futura-Bold", size: 22))
                     .foregroundColor(.white)
-                Text("DATE: ".uppercased())
+                Text("TOTAL TIME: \(match.timePassed) seconds".uppercased())
                     .font(.custom("Futura-Medium", size: 16))
                     .foregroundColor(.white)
-                Text("POINTS: ".uppercased())
+                Text("POINTS: \(match.points)".uppercased())
                     .font(.custom("Futura-Medium", size: 16))
                     .foregroundColor(.white)
             }
@@ -33,6 +33,6 @@ struct MacthesRow: View {
 
 struct MacthesRow_Previews: PreviewProvider {
     static var previews: some View {
-        MacthesRow()
+        MacthesRow(match: mockMatches[0])
     }
 }
