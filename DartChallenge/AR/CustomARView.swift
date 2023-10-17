@@ -12,8 +12,6 @@ import Combine
 
 class CustomARView: ARView {
     
-    // MARK: INITS
-    
     required init(frame frameRect: CGRect) {
         super.init(frame: frameRect)
     }

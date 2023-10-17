@@ -32,7 +32,6 @@ struct EndMatchView: View {
                 timeSection
                 Spacer()
                 PrimaryButton(title: "see details") {
-                    // pass match
                     routerManager.push(to: .matchDetails(match: match))
                 }
                 SecondaryButton(title: "main menu") {
