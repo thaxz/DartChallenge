@@ -13,8 +13,10 @@ import Combine
 class ARDelegate: NSObject, ARSCNViewDelegate, SCNPhysicsContactDelegate, ObservableObject {
     
     @Published var userScore: Int = 0
+    private var arView: ARSCNView?
     
-    var player: AVAudioPlayer!
+    var player = AVAudioPlayer()
+    private var cancellables: Set<AnyCancellable> = []
     
     func setARView(_ arView: ARSCNView) {
         self.arView = arView
@@ -26,12 +28,27 @@ class ARDelegate: NSObject, ARSCNViewDelegate, SCNPhysicsContactDelegate, Observ
         arView.delegate = self
         arView.scene = SCNScene()
         arView.scene.physicsWorld.contactDelegate = self
+        subscribeToActionStream()
     }
     
-    
-    // MARK: - Private
-    
-    private var arView: ARSCNView?
+    func subscribeToActionStream(){
+            ARManager.shared.actionsStream
+                .sink { [weak self] action in
+                    switch action {
+                    case .placeDart(_):
+                        self?.throwDart()
+                    case .placeBoard:
+                        print("change board position")
+                    case .removeDart:
+                        print("change board position")
+                    case .pause:
+                        self?.arView?.session.pause()
+                    case .play:
+                        self?.arView?.session.run(ARWorldTrackingConfiguration())
+                    }
+                }
+                .store(in: &cancellables)
+        }
     
     func throwDart(){
         let dartsNode = MyDart()
