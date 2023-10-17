@@ -32,9 +32,22 @@ class Coordinator: ObservableObject {
         let screenCenter = CGPoint(x: arView.bounds.midX, y: arView.bounds.midY)
         let planeTransform = float4x4.identity
         if let worldCoord = arView.unproject(screenCenter, ontoPlane: planeTransform) {
+            print("x: \(worldCoord.x)")
+            print("z: \(worldCoord.z)")
             ARManager.shared.actionsStream.send(.placeDart(at: worldCoord))
         }
     }
 }
 
 
+// PARA FRENTE
+// x: 0.030932507
+// z: -0.11164334
+
+// ESQUERDO
+// x:
+// z:
+
+// DIREITO
+// x: 53.709667
+// z: 5.056689
