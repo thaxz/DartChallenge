@@ -11,18 +11,17 @@ import ARKit
 struct GameView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var coordinator = Coordinator()
     @StateObject private var viewModel = GameViewModel()
     
     @EnvironmentObject private var routerManager: NavigationRouter
-    
+    @ObservedObject var arDelegate = ARDelegate()
     
     @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
-            ARViewContainer(coordinator: coordinator)
+            ARViewRepresentable(arDelegate: arDelegate)
                 .ignoresSafeArea()
             VStack {
                 headerSection
@@ -76,12 +75,10 @@ extension GameView {
         Button {
             viewModel.throwNumber += 1
             if viewModel.throwNumber < 5 {
-                coordinator.placeDart()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                     viewModel.changeBoard()
                 }
             } else if viewModel.throwNumber >= 5 {
-                coordinator.placeDart()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3){
                     viewModel.gameOver()
                 }

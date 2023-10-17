@@ -7,47 +7,19 @@
 
 import Foundation
 import SwiftUI
-import RealityKit
+import ARKit
 
-struct ARViewContainer: UIViewRepresentable {
-    var coordinator: Coordinator
+struct ARViewRepresentable: UIViewRepresentable {
     
-    func makeUIView(context: Context) -> CustomARView {
-        let arView = CustomARView()
-        coordinator.arView = arView
+    let arDelegate: ARDelegate
+    
+    func makeUIView(context: Context) -> some UIView {
+        let arView = ARSCNView(frame: .zero)
+        arDelegate.setARView(arView)
         return arView
     }
     
-    func updateUIView(_ uiView: CustomARView, context: Context) {}
-}
-
-class Coordinator: ObservableObject {
-    
-    static let shared = Coordinator()
-    
-    weak var arView: CustomARView?
-    
-    func placeDart() {
-        guard let arView = arView else { return }
-        let screenCenter = CGPoint(x: arView.bounds.midX, y: arView.bounds.midY)
-        let planeTransform = float4x4.identity
-        if let worldCoord = arView.unproject(screenCenter, ontoPlane: planeTransform) {
-            print("x: \(worldCoord.x)")
-            print("z: \(worldCoord.z)")
-            ARManager.shared.actionsStream.send(.placeDart(at: worldCoord))
-        }
+    func updateUIView(_ uiView: UIViewType, context: Context) {
+        
     }
 }
-
-
-// PARA FRENTE
-// x: 0.030932507
-// z: -0.11164334
-
-// ESQUERDO
-// x:
-// z:
-
-// DIREITO
-// x: 53.709667
-// z: 5.056689

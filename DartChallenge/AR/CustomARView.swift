@@ -10,57 +10,39 @@ import RealityKit
 import SwiftUI
 import Combine
 
-class CustomARView: ARView {
+class ARDelegate: NSObject, ARSCNViewDelegate, ObservableObject {
     
-    required init(frame frameRect: CGRect) {
-        super.init(frame: frameRect)
-    }
+    @Published var message:String = "starting AR"
     
-    @MainActor required dynamic init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    /// This is the init that is being used
-    convenience init(){
-        self.init(frame: UIScreen.main.bounds)
-        placeBoard()
-        subscribeToActionStream()
-    }
-    
-    private var cancellables: Set<AnyCancellable> = []
-    
-    //MARK: COMPONENTS
-    var dartBoard: Entity?
-    var dartEntity = ModelEntity(mesh: .generateBox(width: 1, height: 1, depth: 9),
-                                 materials: [SimpleMaterial(color: .red, isMetallic: false)])
-    var dartWorldAnchor = AnchorEntity()
-    
-    // View's configuration
-    private func setupConfiguration(){
-        // Tracks the device relative to it's environment
+    func setARView(_ arView: ARSCNView) {
+        self.arView = arView
+        
         let configuration = ARWorldTrackingConfiguration()
-        session.run(configuration)
+        configuration.planeDetection = .horizontal
+        arView.session.run(configuration)
+        
+        arView.delegate = self
+        arView.scene = SCNScene()
+    }
+
+    
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        print("camera did change \(camera.trackingState)")
+        switch camera.trackingState {
+        case .limited(_):
+            message = "tracking limited"
+        case .normal:
+            message =  "tracking ready"
+        case .notAvailable:
+            message = "cannot track"
+        }
     }
     
-    func subscribeToActionStream(){
-        ARManager.shared.actionsStream
-            .sink { [weak self] action in
-                switch action {
-                case .placeDart(let position):
-                    self?.loadDart(physicalSphere: self!.dartEntity, at: position)
-                case .placeBoard:
-                    self?.placeBoard()
-                case .removeDart:
-                    self?.updateDart()
-                case .checkCollision:
-                    self?.checkCollisions()
-                case .pause:
-                    self?.session.pause()
-                case .play:
-                    self?.session.run(ARWorldTrackingConfiguration())
-                }
-            }
-            .store(in: &cancellables)
-    }
+    // MARK: - Private
+
+    private var arView: ARSCNView?
+
     
+    
+
 }
