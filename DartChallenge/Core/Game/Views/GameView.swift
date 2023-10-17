@@ -16,7 +16,6 @@ struct GameView: View {
     @EnvironmentObject private var routerManager: NavigationRouter
     
     @State var isPaused: Bool = false
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
@@ -28,10 +27,6 @@ struct GameView: View {
                 trowButton
             }
             .padding(40)
-            .onReceive(timer) { _ in
-                ARManager.shared.actionsStream.send(.removeDart)
-//                ARManager.shared.actionsStream.send(.checkCollision)
-            }
             if isPaused {
                 PauseView()
             }
@@ -72,6 +67,7 @@ extension GameView {
     
     var trowButton: some View {
         Button {
+            ARManager.shared.actionsStream.send(.placeDart)
             viewModel.throwNumber += 1
             if viewModel.throwNumber < 5 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3){

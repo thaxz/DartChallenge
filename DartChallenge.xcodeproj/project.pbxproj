@@ -25,6 +25,7 @@
 		E95A4A652ADF1C9C007D6731 /* Bitmask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A642ADF1C9C007D6731 /* Bitmask.swift */; };
 		E95A4A6A2ADF27C1007D6731 /* MyDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A692ADF27C1007D6731 /* MyDart.swift */; };
 		E95A4A6C2ADF2A3B007D6731 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A6B2ADF2A3B007D6731 /* SoundEffect.swift */; };
+		E95A4A6E2ADF39C7007D6731 /* explosion.scnp in Resources */ = {isa = PBXBuildFile; fileRef = E95A4A6D2ADF39C7007D6731 /* explosion.scnp */; };
 		E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54C12ACDA05A00FD8D76 /* Float.swift */; };
 		E9741B832ADAC163001D08A7 /* DartMatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9741B812ADAC163001D08A7 /* DartMatch.xcdatamodeld */; };
 		E9741B862ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9741B842ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift */; };
@@ -64,6 +65,7 @@
 		E95A4A642ADF1C9C007D6731 /* Bitmask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitmask.swift; sourceTree = "<group>"; };
 		E95A4A692ADF27C1007D6731 /* MyDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDart.swift; sourceTree = "<group>"; };
 		E95A4A6B2ADF2A3B007D6731 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		E95A4A6D2ADF39C7007D6731 /* explosion.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = explosion.scnp; sourceTree = "<group>"; };
 		E96D54C12ACDA05A00FD8D76 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		E9741B822ADAC163001D08A7 /* DartMatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DartMatch.xcdatamodel; sourceTree = "<group>"; };
 		E9741B842ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DartMatch+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 		E92C4C0A2ACB815C00301545 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E95A4A6D2ADF39C7007D6731 /* explosion.scnp */,
 				E98FE0482AD32304006410A1 /* Futura-Bold.ttf */,
 				E98FE0492AD32304006410A1 /* Futura-Medium.ttf */,
 				E97AAF5E2ACC30D000FBE4BB /* dartBoard.usdz */,
@@ -367,6 +370,7 @@
 				E92C4BF62ACB67AA00301545 /* Preview Assets.xcassets in Resources */,
 				E97AAF612ACC30D100FBE4BB /* firstDart.usdz in Resources */,
 				E98FE04B2AD32304006410A1 /* Futura-Medium.ttf in Resources */,
+				E95A4A6E2ADF39C7007D6731 /* explosion.scnp in Resources */,
 				E92C4BF32ACB67AA00301545 /* Assets.xcassets in Resources */,
 				E97AAF602ACC30D100FBE4BB /* dartBoard.usdz in Resources */,
 				E98FE04A2AD32304006410A1 /* Futura-Bold.ttf in Resources */,

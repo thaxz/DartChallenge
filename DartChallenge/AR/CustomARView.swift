@@ -15,6 +15,7 @@ class DartGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsCon
     var sceneView: ARSCNView!
     var scoreLabel: UILabel!
     var player: AVAudioPlayer!
+    private var cancellables: Set<AnyCancellable> = []
     
     private var userScore: Int = 0 {
         didSet {
@@ -25,10 +26,10 @@ class DartGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsCon
         }
     }
     
+    // MARK: View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Configurar ARSCNView programaticamente
         sceneView = ARSCNView()
         sceneView.delegate = self
         sceneView.showsStatistics = true
@@ -48,27 +49,43 @@ class DartGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsCon
         view.addSubview(scoreLabel)
         self.userScore = 0
         self.addNewBoard()
+        self.subscribeToActionStream()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.configureSession()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        // Pause the view's session
         sceneView.session.pause()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        // Posicionar e dimensionar os elementos de interface na view
         sceneView.frame = view.bounds
         scoreLabel.frame = CGRect(x: 20, y: 20, width: view.bounds.width - 40, height: 50)
+    }
+    
+    // MARK: Combine
+    func subscribeToActionStream(){
+        ARManager.shared.actionsStream
+                   .sink { [weak self] action in
+                       switch action {
+                       case .placeDart:
+                           self?.didTapScreen()
+                       case .placeBoard:
+                           print("colocar outro board")
+                       case .removeDart:
+                           print("remover os darts")
+                       case .pause:
+                           print("pausou")
+                       case .play:
+                           print("despausou")
+                       }
+                   }
+                   .store(in: &cancellables)
     }
     
     // MARK: - Game Functionality
@@ -88,6 +105,17 @@ class DartGameViewController: UIViewController, ARSCNViewDelegate, SCNPhysicsCon
             // Run the view's session
             sceneView.session.run(configuration)
         }
+    }
+    
+    func didTapScreen() {
+        self.playSoundEffect(ofType: .torpedo)
+        let dartsNode = MyDart()
+        let (direction, position) = self.getUserVector()
+        dartsNode.position = position
+        let dartsDirection = direction
+        dartsNode.physicsBody?.applyForce(dartsDirection, asImpulse: true)
+        sceneView.scene.rootNode.addChildNode(dartsNode)
+        
     }
     
     func addNewBoard() {

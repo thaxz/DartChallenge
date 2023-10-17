@@ -10,7 +10,7 @@ import SwiftUI
 
 enum ARAction {
     
-    case placeDart(at: SIMD3<Float>)
+    case placeDart
     case placeBoard
     case removeDart
     case pause
