@@ -9,17 +9,18 @@ import Foundation
 import SwiftUI
 import ARKit
 
-struct ARViewRepresentable: UIViewRepresentable {
+struct ARDartsViewContainer: UIViewControllerRepresentable {
     
-    let arDelegate: ARDelegate
-    
-    func makeUIView(context: Context) -> some UIView {
-        let arView = ARSCNView(frame: .zero)
-        arDelegate.setARView(arView)
-        return arView
+    typealias UIViewControllerType = DartGameViewController
+
+    func makeUIViewController(context: Context) -> DartGameViewController {
+        let viewController = DartGameViewController()
+        return viewController
     }
-    
-    func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+
+    func updateUIViewController(_ uiViewController: DartGameViewController, context: Context) {
     }
 }
+
+
+

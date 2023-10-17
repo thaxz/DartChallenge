@@ -14,14 +14,13 @@ struct GameView: View {
     @StateObject private var viewModel = GameViewModel()
     
     @EnvironmentObject private var routerManager: NavigationRouter
-    @ObservedObject var arDelegate = ARDelegate()
     
     @State var isPaused: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack {
-            ARViewRepresentable(arDelegate: arDelegate)
+            ARDartsViewContainer()
                 .ignoresSafeArea()
             VStack {
                 headerSection
