@@ -24,6 +24,7 @@
 		E95A4A632ADF1C4D007D6731 /* DartBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A622ADF1C4D007D6731 /* DartBoard.swift */; };
 		E95A4A652ADF1C9C007D6731 /* Bitmask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A642ADF1C9C007D6731 /* Bitmask.swift */; };
 		E95A4A6A2ADF27C1007D6731 /* MyDart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A692ADF27C1007D6731 /* MyDart.swift */; };
+		E95A4A6C2ADF2A3B007D6731 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A6B2ADF2A3B007D6731 /* SoundEffect.swift */; };
 		E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54C12ACDA05A00FD8D76 /* Float.swift */; };
 		E9741B832ADAC163001D08A7 /* DartMatch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9741B812ADAC163001D08A7 /* DartMatch.xcdatamodeld */; };
 		E9741B862ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9741B842ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift */; };
@@ -62,6 +63,7 @@
 		E95A4A622ADF1C4D007D6731 /* DartBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartBoard.swift; sourceTree = "<group>"; };
 		E95A4A642ADF1C9C007D6731 /* Bitmask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitmask.swift; sourceTree = "<group>"; };
 		E95A4A692ADF27C1007D6731 /* MyDart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDart.swift; sourceTree = "<group>"; };
+		E95A4A6B2ADF2A3B007D6731 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		E96D54C12ACDA05A00FD8D76 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
 		E9741B822ADAC163001D08A7 /* DartMatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DartMatch.xcdatamodel; sourceTree = "<group>"; };
 		E9741B842ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DartMatch+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				E92C4C062ACB6F8300301545 /* ARAction.swift */,
 				E92B72272AD9B2C600F85D34 /* Route.swift */,
+				E95A4A6B2ADF2A3B007D6731 /* SoundEffect.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				E92C4C072ACB6F8300301545 /* ARAction.swift in Sources */,
 				E92B72262AD9B2AB00F85D34 /* NavigationRouter.swift in Sources */,
 				E98FE0582AD33921006410A1 /* DartRow.swift in Sources */,
+				E95A4A6C2ADF2A3B007D6731 /* SoundEffect.swift in Sources */,
 				E98FE05A2AD33D82006410A1 /* MacthesRow.swift in Sources */,
 				E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */,
 				E98FE0522AD33621006410A1 /* DetailView.swift in Sources */,
