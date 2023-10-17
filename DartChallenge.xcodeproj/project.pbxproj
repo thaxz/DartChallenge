@@ -24,6 +24,8 @@
 		E92C4C092ACB6FDC00301545 /* ARManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C082ACB6FDC00301545 /* ARManager.swift */; };
 		E92C4C0C2ACB816D00301545 /* Dart.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E92C4C0B2ACB816D00301545 /* Dart.rcproject */; };
 		E952C2742AD4261D0011FDB9 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E952C2732AD4261D0011FDB9 /* PrimaryButton.swift */; };
+		E95A4A632ADF1C4D007D6731 /* DartBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A622ADF1C4D007D6731 /* DartBoard.swift */; };
+		E95A4A652ADF1C9C007D6731 /* Bitmask.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95A4A642ADF1C9C007D6731 /* Bitmask.swift */; };
 		E96D54BE2ACD9C9100FD8D76 /* CustomARView+Dart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */; };
 		E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */; };
 		E96D54C22ACDA05A00FD8D76 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96D54C12ACDA05A00FD8D76 /* Float.swift */; };
@@ -64,6 +66,8 @@
 		E92C4C082ACB6FDC00301545 /* ARManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARManager.swift; sourceTree = "<group>"; };
 		E92C4C0B2ACB816D00301545 /* Dart.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Dart.rcproject; sourceTree = "<group>"; };
 		E952C2732AD4261D0011FDB9 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		E95A4A622ADF1C4D007D6731 /* DartBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DartBoard.swift; sourceTree = "<group>"; };
+		E95A4A642ADF1C9C007D6731 /* Bitmask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitmask.swift; sourceTree = "<group>"; };
 		E96D54BD2ACD9C9100FD8D76 /* CustomARView+Dart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+Dart.swift"; sourceTree = "<group>"; };
 		E96D54BF2ACD9F7700FD8D76 /* CustomARView+DartBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomARView+DartBoard.swift"; sourceTree = "<group>"; };
 		E96D54C12ACDA05A00FD8D76 /* Float.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 		E92C4BFC2ACB687300301545 /* AR */ = {
 			isa = PBXGroup;
 			children = (
+				E95A4A612ADF1C3B007D6731 /* Entities */,
 				E92C4BFE2ACB698200301545 /* ARViewContainer.swift */,
 				E92C4C002ACB69A100301545 /* CustomARView.swift */,
 				E915E3FD2ACCB9D90046F5D7 /* CustomARView+Load.swift */,
@@ -200,6 +205,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E95A4A612ADF1C3B007D6731 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E95A4A622ADF1C4D007D6731 /* DartBoard.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		E9741B882ADAC1C3001D08A7 /* CData */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +257,7 @@
 				E92B72292AD9B2ED00F85D34 /* Match.swift */,
 				E9741B812ADAC163001D08A7 /* DartMatch.xcdatamodeld */,
 				E92C4C052ACB6F7100301545 /* Enums */,
+				E95A4A642ADF1C9C007D6731 /* Bitmask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,11 +402,13 @@
 				E9741B862ADAC1BC001D08A7 /* DartMatch+CoreDataClass.swift in Sources */,
 				E98FE04E2AD3277F006410A1 /* PauseView.swift in Sources */,
 				E92B722A2AD9B2ED00F85D34 /* Match.swift in Sources */,
+				E95A4A632ADF1C4D007D6731 /* DartBoard.swift in Sources */,
 				E98FE0542AD33644006410A1 /* PreviousMatchesView.swift in Sources */,
 				E9741B872ADAC1BC001D08A7 /* DartMatch+CoreDataProperties.swift in Sources */,
 				E92C4BF12ACB67A900301545 /* GameView.swift in Sources */,
 				E915E3FC2ACCB8C20046F5D7 /* Entity.swift in Sources */,
 				E98FE0472AD32142006410A1 /* SecondaryButton.swift in Sources */,
+				E95A4A652ADF1C9C007D6731 /* Bitmask.swift in Sources */,
 				E98FE0412AD31E15006410A1 /* MenuView.swift in Sources */,
 				E96D54C02ACD9F7700FD8D76 /* CustomARView+DartBoard.swift in Sources */,
 				E9741B832ADAC163001D08A7 /* DartMatch.xcdatamodeld in Sources */,
